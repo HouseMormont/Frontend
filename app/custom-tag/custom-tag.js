@@ -1,5 +1,5 @@
 /**
- * Created by Laptop on 10/9/2016.
+ * Created by Lucian Bredean on 10/9/2016.
  */
 angular.module('EasyDocsUBB')
     .component('customTag', {
