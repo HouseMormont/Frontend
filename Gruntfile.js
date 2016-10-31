@@ -1,11 +1,12 @@
 /**
- * Created by Laptop on 10/7/2016.
+ * Created by Lucian Bredean on 10/7/2016.
  */
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-wiredep');
     grunt.loadNpmTasks('grunt-include-source');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-connect-rewrite');
     grunt.loadNpmTasks('grunt-includes');
     grunt.loadNpmTasks('grunt-concurrent');
 
@@ -49,13 +50,20 @@ module.exports = function (grunt) {
         connect: {
             keepalive: {
                 options: {
+                    protocol: 'http',
                     port: 8989,
-                    host: '0.0.0.0',
+                    hostname: 'localhost',
                     livereload: true,
                     keepalive: true,
                     useAvailablePort: true,
-                    open: 'http://localhost:8989/app/index.html'
-                }
+                    // open: 'app/index.html',
+                    // open: true
+                    open: {
+                        target: 'http://localhost:8989/app/index.html'
+                    }
+                    // base:'/'
+                },
+                rules: {'(.*)(?!\.html|\.jpg|\.css)' : '$1.html'}
             }
         },
         concurrent: {

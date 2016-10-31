@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>RavenApp</title>
-
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- include: "type": "css", "files": "**/*.css" -->
     <link rel="stylesheet" type="text/css" href="app.css" />
-    <link rel="stylesheet" type="text/css" href="custom-tag/custom-tag.css" />
+    <link rel="stylesheet" type="text/css" href="login-tag/login-tag.css" />
     <!-- /include -->
 </head>
-<body ng-app="EasyDocsUBB">
-    <p>HIIIIIIIIIIIIIIIIIIIIA</p>
-    wsedew
-    <custom-tag></custom-tag>
+<body ng-app="EasyDocsUBBApp">
+    <div ng-view class="container-fluid">
+    </div>
     <!-- bower:js -->
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-route/angular-route.js"></script>
@@ -22,11 +21,12 @@
     <script src="../bower_components/underscore/underscore.js"></script>
     <script src="../bower_components/lodash/lodash.js"></script>
     <script src="../bower_components/restangular/dist/restangular.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
 
     <!-- include: "type": "js", "files": "**/*.js" -->
     <script src="app.js"></script>
-    <script src="custom-tag/custom-tag.js"></script>
+    <script src="login-tag/login-tag.js"></script>
     <!-- /include -->
     <script src="//localhost:35729/livereload.js"></script>
 </body>

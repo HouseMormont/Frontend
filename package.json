@@ -1,12 +1,13 @@
 {
-  "name": "RavenApp",
-  "namelower": "ravenapp",
-  "version": "0.0.0",
-  "description": "RavenTeam project",
+  "name": "EasyDocsUBBApp",
+  "namelower": "EasyDocsUBBApp",
+  "version": "0.0.1",
+  "description": "HouseMormont project",
   "readme": "README.md",
   "devDependencies": {
     "grunt": "0.4.2",
     "grunt-concurrent": "^2.3.1",
+    "grunt-connect-rewrite": "^0.2.1",
     "grunt-contrib-concat": "0.3.0",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-copy": "0.5.0",
@@ -26,8 +27,6 @@
     "karma-phantomjs-launcher": "0.1.4"
   },
   "scripts": {
-    "postinstall": "bower install",
-    "prestart": "grunt prepare",
-    "start": "http-server -a localhost -p 8000 -c-1 ./app"
+    "postinstall": "bower install"
   }
 }
