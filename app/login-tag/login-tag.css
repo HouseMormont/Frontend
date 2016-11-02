@@ -26,23 +26,13 @@ span {
     bottom: 0;
 }
 
-.mormontInput:focus {
-    box-shadow: 0 0 10px #69A31B;
-    outline: none;
-    border: 1px solid #69A31B;
+.title span {
+    font-weight: bold;
+    font-size: 500%;
+    color: #69A31B;
+    display: inline-block;
 }
 
-/*.mormontButton {*/
-    /*background-color: rgb(238, 238, 238);*/
-    /*color: rgb(43, 43, 43);*/
-/*}*/
-
-/*.mormontButton:hover{*/
-    /*background-color: rgb(200, 200, 200);*/
-    /*color: black;*/
-/*}*/
-
-/*.mormontButton:active, .btn-default:active {*/
-    /*background-color: red;*/
-    /*color: white;*/
-/*}*/
+.title .univName {
+    color: darkgrey;
+}

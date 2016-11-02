@@ -6,3 +6,13 @@ body {
     position: absolute;
 }
 
+.mormontButton:active:focus, .btn-default:active:focus, .btn:active:focus, .submit:active:focus {
+    background-color: #69A31B;
+    color: white;
+}
+
+.mormontInput:focus {
+    box-shadow: 0 0 10px #69A31B;
+    outline: none;
+    border: 1px solid #69A31B;
+}
