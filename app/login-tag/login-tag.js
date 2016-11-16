@@ -8,6 +8,7 @@ angular.module('EasyDocsUBBApp')
             $ctrl = this;
             $ctrl.login = function () {
                 alert($ctrl.usrn + ':' + $ctrl.pswd);
+                // AppService.loginRequest($ctrl.usrn, $ctrl.pswd);
             };
         }
     });

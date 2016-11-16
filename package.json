@@ -28,5 +28,8 @@
   },
   "scripts": {
     "postinstall": "bower install"
+  },
+  "dependencies": {
+    "restangular": "^1.5.2"
   }
 }
