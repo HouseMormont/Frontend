@@ -4,11 +4,11 @@
 angular.module('EasyDocsUBBApp')
     .component('loginTag', {
         templateUrl: 'login-tag/login-tag.html',
-        controller: function () {
+        controller: function (AppService) {
             $ctrl = this;
             $ctrl.login = function () {
                 alert($ctrl.usrn + ':' + $ctrl.pswd);
-                // AppService.loginRequest($ctrl.usrn, $ctrl.pswd);
+                AppService.loginRequest($ctrl.usrn, $ctrl.pswd);
             };
         }
     });

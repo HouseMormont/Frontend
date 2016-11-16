@@ -7,7 +7,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-connect-rewrite');
-    grunt.loadNpmTasks('grunt-includes');
     grunt.loadNpmTasks('grunt-concurrent');
 
     grunt.initConfig({
