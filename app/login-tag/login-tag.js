@@ -5,6 +5,11 @@ angular.module('EasyDocsUBBApp')
     .component('loginTag', {
         templateUrl: 'login-tag/login-tag.html',
         controller: function () {
-            this.message = 'Custom message!!!!!!!';
+            $ctrl = this;
+            // $ctrl.usrn = undefined;
+            // $ctrl.pswd = undefined;
+            $ctrl.login = function () {
+                alert($ctrl.usrn + ':' + $ctrl.pswd);
+            };
         }
     });

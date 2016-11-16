@@ -3,15 +3,15 @@
  */
 var app = angular.module('EasyDocsUBBApp', ['ngRoute']);
 
-app.config(function($routeProvider){
+app.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'login-tag/login-tag.html'
+            template: '<login-tag></login-tag>'
         })
         .when('/test', {
             templateUrl: 'test.html'
         })
         .otherwise({
-            redirectTo:'/'
+            redirectTo: 'login-tag/login-tag.html'
         });
 });
