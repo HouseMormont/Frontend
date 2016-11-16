@@ -6,8 +6,6 @@ angular.module('EasyDocsUBBApp')
         templateUrl: 'login-tag/login-tag.html',
         controller: function () {
             $ctrl = this;
-            // $ctrl.usrn = undefined;
-            // $ctrl.pswd = undefined;
             $ctrl.login = function () {
                 alert($ctrl.usrn + ':' + $ctrl.pswd);
             };
