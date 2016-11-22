@@ -1,38 +1,24 @@
-.container-fluid {
-    height: 100%;
-    padding-left: 0;
-    padding-right: 0;
-}
+/*.container-fluid {*/
+    /*height: 100%;*/
+    /*padding-left: 0;*/
+    /*padding-right: 0;*/
+/*}*/
 
-.page-header {
-    background: linear-gradient(to top, white 0%, darkgrey 90%);
-    height: 30%;
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: 0;
-    border: 0;
-}
+/*.page-header {*/
+    /*background: linear-gradient(to top, white 0%, darkgrey 90%);*/
+    /*height: 30%;*/
+    /*margin-top: 0;*/
+    /*margin-left: 0;*/
+    /*margin-right: 0;*/
+    /*border: 0;*/
+/*}*/
 
-.submit {
+login-tag .submit {
     width: 100%;
 }
 
-span {
-    cursor: default;
-}
-
-.glyphicon {
+login-tag .glyphicon {
     top: 0;
     bottom: 0;
 }
 
-.title span {
-    font-weight: bold;
-    font-size: 500%;
-    color: #69A31B;
-    display: inline-block;
-}
-
-.title .univName {
-    color: darkgrey;
-}

@@ -6,6 +6,21 @@ body {
     position: absolute;
 }
 
+.container-fluid {
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.page-header {
+    background: linear-gradient(to top, white 0%, darkgrey 90%);
+    height: 30%;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    border: 0;
+}
+
 .mormontButton:active:focus, .btn-default:active:focus, .btn:active:focus, .submit:active:focus {
     background-color: #69A31B;
     color: white;
@@ -15,4 +30,19 @@ body {
     box-shadow: 0 0 10px #69A31B;
     outline: none;
     border: 1px solid #69A31B;
+}
+
+span {
+    cursor: default;
+}
+
+.title span {
+    font-weight: bold;
+    font-size: 500%;
+    color: #69A31B;
+    display: inline-block;
+}
+
+.title .univName {
+    color: darkgrey;
 }

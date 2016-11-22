@@ -8,7 +8,7 @@ angular.module('EasyDocsUBBApp', ['ngRoute', 'restangular', 'base64'])
                 template: '<login-tag></login-tag>'
             })
             .when('/test', {
-                templateUrl: 'test.html'
+                templateUrl: 'main-layout/main-layout.html'
             })
             .otherwise({
                 redirectTo: 'login-tag/login-tag.html'
