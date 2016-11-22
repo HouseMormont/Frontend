@@ -7,7 +7,6 @@ angular.module('EasyDocsUBBApp')
         controller: function (AppService) {
             $ctrl = this;
             $ctrl.login = function () {
-                alert($ctrl.usrn + ':' + $ctrl.pswd);
                 AppService.loginRequest($ctrl.usrn, $ctrl.pswd);
             };
         }

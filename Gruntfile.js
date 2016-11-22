@@ -58,9 +58,21 @@ module.exports = function (grunt) {
                     // open: 'app/index.html',
                     // open: true
                     open: {
-                        target: 'http://localhost:8989/app/index.html'
+                        target: 'http://localhost:8989/app'
                     }
-                    // base:'/'
+                    // base:'/app'
+                },
+                middleware: function(connect, options, middlewares) {
+                    // inject a custom middleware into the array of default middlewares
+                    // this is likely the easiest way for other grunt plugins to
+                    // extend the behavior of grunt-contrib-connect
+                    middlewares.push(function(req, res, next) {
+                        req.setHeader('Access-Control-Allow-Origin', '*');
+                        req.setHeader('Access-Control-Allow-Methods', '*');
+                        return next();
+                    });
+
+                    return middlewares;
                 },
                 rules: {'(.*)(?!\.html|\.jpg|\.css)' : '$1.html'}
             }
