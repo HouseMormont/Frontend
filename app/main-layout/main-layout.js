@@ -4,7 +4,16 @@
 angular.module('EasyDocsUBBApp')
     .component('mainLayout', {
         templateUrl: 'main-layout/main-layout.html',
-        controller: function () {
+        controller: function (AppService) {
+            $ctrl = this;
+            // $ctrl.toggleSideBar = AppService.getSideBarState;
 
+            $ctrl.toggleSideBar = function () {
+                return AppService.getSideBarState();
+            };
+
+            $ctrl.handleSidebar = function () {
+                AppService.handleSideBar();
+            };
         }
     });

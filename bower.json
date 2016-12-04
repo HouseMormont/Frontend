@@ -10,7 +10,11 @@
     "underscore": "^1.6.0",
     "restangular": "^1.4.0",
     "bootstrap": "^3.3.7",
-    "angular-base64": "^2.0.5"
+    "angular-base64": "^2.0.5",
+    "angular-bootstrap": "^2.2.0"
   },
-  "analytics": false
+  "analytics": false,
+  "resolutions": {
+    "angular": "1.5.9"
+  }
 }

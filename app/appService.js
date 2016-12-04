@@ -4,16 +4,27 @@
 // var app = angular.module('EasyDocsUBBApp');
 
 angular.module('EasyDocsUBBApp')
-    .service('AppService', function (Restangular,$base64) {
+    .service('AppService', function (Restangular, $base64) {
         Restangular.setBaseUrl('http://localhost:8080');
         var encoded = $base64.encode('userb:userb');
-        Restangular.setDefaultHeaders({'Authorization': 'Basic ' + encoded });
-        Restangular.setDefaultHeaders({'Access-Control-Allow-Origin' : '*'});
+        Restangular.setDefaultHeaders({'Authorization': 'Basic ' + encoded});
         var service = this;
         var loggedInUser = {
             userName: undefined,
             userRole: undefined,
             token: undefined
+        };
+        var isSideBarActive = {active: false}; //sidebar active
+
+        service.handleSideBar = function () {
+            // console.log("Before:" + isSideBarActive.active);
+            // alert("Before:" + isSideBarActive.active);
+            isSideBarActive.active = !(isSideBarActive.active);
+            // console.log("After:" + isSideBarActive.active);
+        };
+
+        service.getSideBarState = function () {
+            return isSideBarActive.active;
         };
 
         service.setLoggedInUserName = function (username) {
@@ -41,12 +52,19 @@ angular.module('EasyDocsUBBApp')
         };
 
         service.loginRequest = function (u, p) {
-            Restangular.one('/login').post({},{username: u, password: p,'Content-Type': 'application/json', 'Authorization':'Basic'})
+            Restangular.one('/login').post(undefined, undefined, undefined, {Username: u, Password: p})
                 .then(function (response) {
                     console.log(response.plain);
                 })
-                .catch(function(err){
+                .catch(function (err) {
                     console.log(err);
                 });
+            // Restangular.one('/check_login').get(456)
+            //     .then(function (response) {
+            //                 console.log(response.plain);
+            //             })
+            //             .catch(function(err){
+            //                 console.log(err);
+            //             });
         };
     });

@@ -1,11 +1,26 @@
-<div class="container-fluid main-layout">
-    <div class="page-header row main-layout">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 title main-layout">
-            <span class="univName">UBB</span>
-            <span class="appName">EasyDocs</span>
-        </div>
+<div id="wrapper" ng-class="{'toggled':$ctrl.toggleSideBar()}">
+    <div id="sidebar-wrapper">
+        <side-bar ng-show="$ctrl.toggleSideBar()"></side-bar>
     </div>
-    <div class="row">
-
+    <div class="container-fluid main-layout" id="page-content-wrapper">
+        <div class="page-header row main-layout">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 title main-layout">
+                <span class="univName">UBB</span>
+                <span class="appName">EasyDocs</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <uib-tabset type="pills">
+                    <button type="button" class="btn btn-default mormontInput" ng-click="$ctrl.handleSidebar()">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                    </button>
+                    <uib-tab class="mormontTab" heading="Documente proprii">Tab 1 content</uib-tab>
+                    <uib-tab class="mormontTab" heading="Documente in flux">Tab 1 content</uib-tab>
+                    <uib-tab class="mormontTab" heading="Log documente">Tab 1 content</uib-tab>
+                    <uib-tab class="mormontTab" heading="Administrare utilizatori si fluxuri">Tab 1 content</uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
     </div>
 </div>

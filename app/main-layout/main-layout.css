@@ -1,3 +1,7 @@
+.main-layout {
+    overflow-x: hidden;
+}
+
 .main-layout .title {
     text-align: center;
 }
@@ -16,10 +20,72 @@
     height: 17%;
 }
 
-@media screen and (max-device-width: 480px){
-    .main-layout .page-header{
+@media screen and (max-device-width: 480px) {
+    .main-layout .page-header {
         height: 7%;
     }
+    .mormontTab > a {
+        font-size: 25pt;
+    }
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
+    background-color: #69A31B;
+}
+
+.mormontTab > a {
+    color: #69A31B;
+    text-align: center;
+}
+
+.nav-pills.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
 }
 
 
