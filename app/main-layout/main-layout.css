@@ -1,10 +1,7 @@
-.main-layout {
-    overflow-x: hidden;
-}
-
 .main-layout .title {
     text-align: center;
 }
+
 
 .main-layout .container-fluid {
     display: flex;
@@ -20,7 +17,7 @@
     height: 17%;
 }
 
-@media screen and (max-device-width: 480px) {
+@media screen and (max-device-width: 768px) {
     .main-layout .page-header {
         height: 7%;
     }
@@ -28,6 +25,10 @@
         font-size: 25pt;
     }
 }
+
+
+
+
 
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:focus,
@@ -67,7 +68,7 @@
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #000;
+    background: darkgrey;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -90,3 +91,31 @@
 
 
 
+@media screen and (max-device-width: 414px) {
+    #wrapper.toggled #sidebar-wrapper {
+        width: 100%;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        margin-right: -100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 100%;
+    }
+
+    #sidebar-wrapper {
+        left: 100%;
+        width: 0;
+        /*height: 100%;*/
+        margin-left: -100%;
+    }
+
+    #wrapper.toggled {
+        padding-left: 100%;
+    }
+
+    body{
+        height: 100%;
+    }
+}

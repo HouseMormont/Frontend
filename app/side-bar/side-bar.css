@@ -1,0 +1,9 @@
+.sidebar-brand {
+    font-size: 20pt;
+    height: 100%;
+    color: whitesmoke;
+}
+
+.sidebar-nav > li {
+    padding-bottom: 15px;
+}

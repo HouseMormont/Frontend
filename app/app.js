@@ -1,16 +1,24 @@
 /**
  * Created by Lucian Bredean on 10/7/2016.
  */
-angular.module('EasyDocsUBBApp', ['ngRoute', 'restangular', 'base64', 'ui.bootstrap'])
+angular.module('EasyDocsUBBApp', ['ngRoute', 'restangular', 'base64', 'ui.bootstrap', 'ui.router'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
                 template: '<login-tag></login-tag>'
             })
-            .when('/test', {
+            .when('/main-layout', {
                 template: '<main-layout></main-layout>'
             })
             .otherwise({
                 redirectTo: 'login-tag/login-tag.html'
             });
+    })
+    .run(function ($rootScope, AppService, $location) {
+        if (!($location.path() === "/")) {
+            $rootScope.$on("$routeChangeStart", function () {
+                if (AppService.isUserLoggedIn() == false)
+                    $location.path("/");
+            });
+        }
     });

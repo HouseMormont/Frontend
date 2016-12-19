@@ -11,7 +11,9 @@
     "restangular": "^1.4.0",
     "bootstrap": "^3.3.7",
     "angular-base64": "^2.0.5",
-    "angular-bootstrap": "^2.2.0"
+    "angular-bootstrap": "^2.2.0",
+    "angular-cookies": "^1.5.9",
+    "angular-ui-router": "^0.3.2"
   },
   "analytics": false,
   "resolutions": {

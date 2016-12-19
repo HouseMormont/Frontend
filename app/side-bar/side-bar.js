@@ -8,6 +8,14 @@ angular.module('EasyDocsUBBApp')
             $ctrl = this;
             $ctrl.toggleSideBar = function () {
                 return AppService.getSideBarState();
+            };
+
+            $ctrl.handleSidebar = function () {
+                AppService.handleSideBar();
+            };
+
+            $ctrl.logout = function () {
+                AppService.logoutUser();
             }
         }
     });

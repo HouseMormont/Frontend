@@ -1,26 +1,41 @@
 /**
  * Created by Lucian Bredean on 11/15/2016.
  */
-// var app = angular.module('EasyDocsUBBApp');
-
 angular.module('EasyDocsUBBApp')
-    .service('AppService', function (Restangular, $base64) {
+    .service('AppService', function (Restangular, $base64, $location) {
+        // Restangular.setBaseUrl('http://172.30.117.30:8080');
         Restangular.setBaseUrl('http://localhost:8080');
-        var encoded = $base64.encode('userb:userb');
-        Restangular.setDefaultHeaders({'Authorization': 'Basic ' + encoded});
+
+        Restangular.setDefaultHttpFields({withCredentials: true});
+        Restangular.setFullResponse(true);
         var service = this;
         var loggedInUser = {
             userName: undefined,
             userRole: undefined,
-            token: undefined
+            isLoggedIn: false
         };
         var isSideBarActive = {active: false}; //sidebar active
 
+        service.isUserLoggedIn = function () {
+            Restangular.one('/check_login').get()
+                .then(function (response) {
+                    console.log("test login:" + response);
+                    if (response.status == 200) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                })
+                .catch(function (response) {
+                    console.log("test login error:" + response);
+                    return false;
+                });
+            // return loggedInUser.isLoggedIn;
+        };
+
         service.handleSideBar = function () {
-            // console.log("Before:" + isSideBarActive.active);
-            // alert("Before:" + isSideBarActive.active);
             isSideBarActive.active = !(isSideBarActive.active);
-            // console.log("After:" + isSideBarActive.active);
         };
 
         service.getSideBarState = function () {
@@ -43,28 +58,27 @@ angular.module('EasyDocsUBBApp')
             return loggedInUser.userRole;
         };
 
-        service.setToken = function (token) {
-            loggedInUser.token = token;
-        };
-
-        service.getToken = function () {
-            return loggedInUser.token;
+        service.logoutUser = function () {
+            alert("Logout called!");
+            //TODO: Call logout to server
+            loggedInUser.userName = undefined;
+            loggedInUser.userRole = undefined;
+            loggedInUser.isLoggedIn = false;
+            $location.path("/");
         };
 
         service.loginRequest = function (u, p) {
             Restangular.one('/login').post(undefined, undefined, undefined, {Username: u, Password: p})
                 .then(function (response) {
-                    console.log(response.plain);
+                    if (response.status == 200) {
+                        loggedInUser.userName = u;
+                        loggedInUser.userRole = response.data.Authorities[0];
+                        loggedInUser.isLoggedIn = true;
+                        $location.path("/main-layout");
+                    }
                 })
-                .catch(function (err) {
-                    console.log(err);
+                .catch(function () {
+                    $location.path("/");
                 });
-            // Restangular.one('/check_login').get(456)
-            //     .then(function (response) {
-            //                 console.log(response.plain);
-            //             })
-            //             .catch(function(err){
-            //                 console.log(err);
-            //             });
         };
     });
