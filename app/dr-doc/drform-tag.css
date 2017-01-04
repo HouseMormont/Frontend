@@ -1,0 +1,78 @@
+.formDR {
+    padding: 15px;
+    margin: 10px;
+    border: 2px solid #69A31B;
+    border-radius: 10px;
+    display: inline-block;
+    width: calc(100% - 20px);
+    overflow-y: auto;
+    justify-content: center;
+    align-content: center;
+}
+
+.formDR .nested, .nested > div {
+    padding-right: 0;
+}
+
+.formDR .form-title {
+    color: #69A31B;
+    font-size: large;
+    text-decoration: underline;
+}
+
+.formDR .sub-title {
+    text-decoration: underline;
+}
+
+.formDR .chenar {
+    border: 1px solid #69A31B;
+    border-radius: 8px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.formDR > .form-group {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.formDR .checks {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.formDR .form-check-label {
+    vertical-align: middle;
+}
+
+.formDR > .rightPaddingInput, .nested {
+    padding-right: 0;
+}
+
+.formDR .centered-vertically {
+    justify-content: center;
+    vertical-align: middle;
+    align-content: center;
+    display: inline-block;
+    align-items: center;
+}
+
+.formDR .table-responsive {
+    padding-right: 15px;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+.formDR .table th, .table tr {
+    border: 2px double #69A31B;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.formDR > .mormontButton {
+    width: 100%;
+    padding: 10px;
+}
+
+

@@ -2,7 +2,6 @@
     text-align: center;
 }
 
-
 .main-layout .container-fluid {
     display: flex;
     align-items: center;
@@ -21,14 +20,11 @@
     .main-layout .page-header {
         height: 7%;
     }
+
     .mormontTab > a {
         font-size: 25pt;
     }
 }
-
-
-
-
 
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:focus,
@@ -45,8 +41,6 @@
     display: flex;
     justify-content: space-between;
 }
-
-
 
 #wrapper {
     padding-left: 0;
@@ -89,8 +83,6 @@
     margin-right: -250px;
 }
 
-
-
 @media screen and (max-device-width: 414px) {
     #wrapper.toggled #sidebar-wrapper {
         width: 100%;
@@ -115,7 +107,7 @@
         padding-left: 100%;
     }
 
-    body{
+    body {
         height: 100%;
     }
 }

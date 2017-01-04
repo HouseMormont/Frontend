@@ -51,3 +51,7 @@ ul {
 .title .univName {
     color: darkgrey;
 }
+
+.table {
+    boorder: 1px solid 69A31B;
+}

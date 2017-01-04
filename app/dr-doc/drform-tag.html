@@ -1,0 +1,714 @@
+<form class="formDR">
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="form-title">Dispozitia rectorului (cerere pentru efectuare deplasarilor in strainatate)</div>
+    </div>
+
+
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <label for="inputFunctie">Functie </label>
+            <input type="text" class="form-control mormontInput" id="inputFunctie" placeholder="Functie...">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <label for="inputFacDep">Facultate/Departament</label>
+            <input type="text" class="form-control mormontInput" id="inputFacDep"
+                   placeholder="Facultate/Departament...">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <label for="inputDest">Destinatie (Tara, Localitatea)</label>
+            <input type="text" class="form-control mormontInput" id="inputDest" placeholder="Destinatie...">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <label for="inputRuta">Ruta calatoriei</label>
+            <input type="text" class="form-control mormontInput" id="inputRuta" placeholder="Ruta...">
+        </div>
+    </div>
+
+
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12 chenar">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <label for="inputStartDataEveniment">Data inceput eveniment</label>
+            <input type="date" class="form-control mormontInput" id="inputStartDataEveniment"
+                   placeholder="Functie...">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <label for="inputStopDataEveniment">Data final eveniment</label>
+            <input type="date" class="form-control mormontInput" id="inputStopDataEveniment"
+                   placeholder="Facultate/Departament...">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <label for="inputDataPlecare">Data plecare</label>
+            <input type="date" class="form-control mormontInput" id="inputDataPlecare" placeholder="Destinatie...">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <label for="inputDataSosire">Data sosire</label>
+            <input type="date" class="form-control mormontInput" id="inputDataSosire" placeholder="Ruta...">
+        </div>
+    </div>
+
+
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <label>Mijloc de transport:</label>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 checks">
+            <label for="autoChoice" class="form-check-label">auto</label>
+            <input type="checkbox" class="form-check-input" id="autoChoice">
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 checks">
+            <label for="autoPersChoice" class="form-check-label">auto personal</label>
+            <input type="checkbox" class="form-check-input" id="autoPersChoice">
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 checks">
+            <label for="autoUBBChoice" class="form-check-label">auto UBB</label>
+            <input type="checkbox" class="form-check-input" id="autoUBBChoice">
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 checks">
+            <label for="trainChoice" class="form-check-label">tren</label>
+            <input type="checkbox" class="form-check-input" id="trainChoice">
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 checks">
+            <label for="planeChoice" class="form-check-label">avion</label>
+            <input type="checkbox" class="form-check-input" id="planeChoice">
+        </div>
+    </div>
+
+
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12 chenar">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <label for="inputTel">Numar de telefon</label>
+            <input type="tel" class="form-control mormontInput" id="inputTel"
+                   placeholder="+40...">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control mormontInput" id="inputEmail"
+                   placeholder="user@....">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <label for="inputPurpose">Scop deplasare</label>
+            <input type="text" class="form-control mormontInput" id="inputPurpose"
+                   placeholder="Scop deplasare...">
+        </div>
+    </div>
+
+
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <label>Cheltuielile aferente mobilitatii sunt suportate de catre:</label>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 checks">
+            <label for="demanderChoice" class="form-check-label">solicitant</label>
+            <input type="checkbox" class="form-check-input" id="demanderChoice">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 checks">
+            <label for="instChoice" class="form-check-label">institutia organizatoare</label>
+            <input type="checkbox" class="form-check-input" id="instChoice">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 checks">
+            <label for="otherChoice" class="form-check-label">altele</label>
+            <input type="checkbox" class="form-check-input" id="otherChoice">
+            <input type="text" class="form-control mormontInput" id="inputOtherChoice"
+                   placeholder="Sursa finantare...">
+        </div>
+    </div>
+
+    <!--Cheltuieli-->
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12 chenar">
+        <div class="nested col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 row sub-title">
+                <label>Cheltuieli de deplasare solicitate: Transport international</label>
+            </div>
+
+            <!--AVION TREN MICROBUZ-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label>Transport avion, tren, microbuz</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label for="inputSumATM">Suma</label>
+                    <input type="number" class="form-control mormontInput" id="inputSumATM">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                    <label class="form-check-label" for="ATMron">RON</label>
+                    <input class="form-check-input" type="radio" id="ATMron" checked name="ATMOptions">
+                </div>
+                <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <label class="form-check-label" for="ATMeur">EUR</label>
+                    <input class="form-check-input" type="radio" id="ATMeur" name="ATMOptions">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label for="inputSrcATM">Sursa finantare</label>
+                    <input type="text" class="form-control" id="inputSrcATM"
+                           placeholder="Sursa finantare...">
+                </div>
+            </div>
+
+            <!--AUTO PERSONAL-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label>Transport auto personal (dus-intors, pe teritoriul Romaniei)</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label for="inputSumAP">Suma (RON)</label>
+                    <input type="number" class="form-control mormontInput" id="inputSumAP">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                    <label for="inputSrcAP">Sursa finantare</label>
+                    <input type="text" class="form-control mormontInput" id="inputSrcAP"
+                           placeholder="Sursa finantare...">
+                </div>
+            </div>
+
+
+            <!--AUTO PERSONAL/UBB-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label>Transport auto(dus-intors, in afara teritoriului Romaniei)</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label for="inputSumA">Suma</label>
+                    <input type="number" class="form-control mormontInput" id="inputSumA">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                    <label class="form-check-label" for="Ausd">USD</label>
+                    <input class="form-check-input" type="radio" id="Ausd" checked name="AOptions">
+                </div>
+                <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <label class="form-check-label" for="Aeur">EUR</label>
+                    <input class="form-check-input" type="radio" id="Aeur" name="AOptions">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                    <label for="inputSrcA">Sursa finantare</label>
+                    <input type="text" class="form-control mormontInput" id="inputSrcA"
+                           placeholder="Sursa finantare...">
+                </div>
+            </div>
+
+            <!--TRANSPORT ERASMUS-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label>Transport mobilitati in proiecte Erasmus+</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label for="inputSumE">Suma (EUR)</label>
+                    <input type="number" class="form-control mormontInput" id="inputSumE">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
+                    <label for="inputSrcA">Sursa finantare</label>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 checks">
+                    <label for="srcTEChoiceST" class="form-check-label">ST</label>
+                    <input type="checkbox" class="form-check-input" id="srcTEChoiceST">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 checks">
+                    <label for="srcTEChoiceTA" class="form-check-label">TA</label>
+                    <input type="checkbox" class="form-check-input" id="srcTEChoiceTA">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 checks">
+                    <label for="srcTEChoiceOM" class="form-check-label">Organizare mobilitati</label>
+                    <input type="checkbox" class="form-check-input" id="srcTEChoiceOM">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 checks">
+                    <label for="srcTEChoiceC" class="form-check-label">Conferinte</label>
+                    <input type="checkbox" class="form-check-input" id="srcTEChoiceC">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 checks">
+                    <label for="otherChoice" class="form-check-label">Alta sursa</label>
+                    <input type="checkbox" class="form-check-input" id="srcTEChoiceA">
+                    <input type="text" class="form-control mormontInput" id="srcTEChoiceASP"
+                           placeholder="Sursa finantare...">
+                </div>
+            </div>
+
+
+            <!--TRANSPORT INTERN IN TARA DESTINATIE-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label>Transport intern in tara destinatie</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label for="inputSumTID">Suma</label>
+                    <input type="number" class="form-control mormontInput" id="inputSumTID">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                    <label class="form-check-label" for="TIDusd">USD</label>
+                    <input class="form-check-input" type="radio" id="TIDusd" checked name="TIDOptions">
+                </div>
+                <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <label class="form-check-label" for="TIDeur">EUR</label>
+                    <input class="form-check-input" type="radio" id="TIDeur" name="TIDOptions">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                    <label for="inputSrcTID">Sursa finantare</label>
+                    <input type="text" class="form-control mormontInput" id="inputSrcTID"
+                           placeholder="Sursa finantare...">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--DIURNA-->
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12 chenar">
+        <div class="nested col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 row sub-title">
+                <label>Diurna/Subzistenta</label>
+            </div>
+
+            <!--DIURNA-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <label>Diurna</label>
+                </div>
+
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                    <label class="form-check-label" for="DDusd">USD</label>
+                    <input class="form-check-input" type="radio" id="DDusd" checked name="DOptions">
+                </div>
+                <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <label class="form-check-label" for="DDeur">EUR</label>
+                    <input class="form-check-input" type="radio" id="DDeur" name="DOptions">
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label for="inputCpZD">Cuantum / zi</label>
+                    <input type="number" class="form-control mormontInput" id="inputCpZD">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label for="inputNZD">Numar de zile</label>
+                    <input type="number" class="form-control mormontInput" id="inputNZD">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label for="inputSTD">Suma totala</label>
+                    <input type="number" class="form-control mormontInput" id="inputSTD">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label for="inputSrcD">Sursa finantare</label>
+                    <input type="text" class="form-control mormontInput" id="inputSrcD"
+                           placeholder="Sursa finantare...">
+                </div>
+            </div>
+
+
+            <!--SUBZISTENTA ERASMUS-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label>Subzistenta pentru programul Erasmus+</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label for="inputSumES">Suma (EUR)</label>
+                    <input type="number" class="form-control mormontInput" id="inputSumES">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
+                    <label for="inputSrcA">Sursa finantare</label>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 checks">
+                    <label for="srcTESChoiceST" class="form-check-label">ST</label>
+                    <input type="checkbox" class="form-check-input" id="srcTESChoiceST">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 checks">
+                    <label for="srcTESChoiceTA" class="form-check-label">TA</label>
+                    <input type="checkbox" class="form-check-input" id="srcTESChoiceTA">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 checks">
+                    <label for="srcTESChoiceOM" class="form-check-label">Organizare mobilitati</label>
+                    <input type="checkbox" class="form-check-input" id="srcTESChoiceOM">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 checks">
+                    <label for="srcTESChoiceC" class="form-check-label">Conferinte</label>
+                    <input type="checkbox" class="form-check-input" id="srcTESChoiceC">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 checks">
+                    <label for="otherChoice" class="form-check-label">Alta sursa</label>
+                    <input type="checkbox" class="form-check-input" id="srcTESChoiceA">
+                    <input type="text" class="form-control mormontInput" id="srcTESChoiceASP"
+                           placeholder="Sursa finantare...">
+                </div>
+            </div>
+
+            <!--BURSA DE MOBILITATE-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <label>Burse de mobilitate</label>
+                </div>
+
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                    <label class="form-check-label" for="Dusd">USD</label>
+                    <input class="form-check-input" type="radio" id="Dusd" checked name="DBMOptions">
+                </div>
+                <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <label class="form-check-label" for="Deur">EUR</label>
+                    <input class="form-check-input" type="radio" id="Deur" name="DBMOptions">
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label for="inputCpLBM">Cuantum / luna</label>
+                    <input type="number" class="form-control mormontInput" id="inputCpLBM">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label for="inputNLBM">Numar de luni</label>
+                    <input type="number" class="form-control mormontInput" id="inputNLBM">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label for="inputSTBM">Suma totala</label>
+                    <input type="number" class="form-control mormontInput" id="inputSTBM">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label for="inputSrcBM">Sursa finantare</label>
+                    <input type="text" class="form-control mormontInput" id="inputSrcBM"
+                           placeholder="Sursa finantare...">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--CAZARE-->
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12 chenar">
+        <div class="nested col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 row sub-title">
+                <label>Cazare (Nu se aplica pentru mobilitati Erasmus+)</label>
+            </div>
+            <div class="table-responsive col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <table class="table">
+                    <tr>
+                        <th>Tip cazare</th>
+                        <th>Cuantum / zi</th>
+                        <th>Numar de zile</th>
+                        <th>Moneda</th>
+                        <th>Sursa de finantare</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            In localitatie de destinatie
+                        </th>
+                        <td>
+                            <input type="number" class="form-control mormontInput">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control mormontInput">
+                        </td>
+                        <td>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                                <label class="form-check-label" for="LDusd">USD</label>
+                                <input class="form-check-input" type="radio" id="LDusd" checked name="LDOptions">
+                            </div>
+                            <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <label class="form-check-label" for="LDeur">EUR</label>
+                                <input class="form-check-input" type="radio" id="LDeur" name="LDOptions">
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control mormontInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Pe durata efectuarii calatoriei
+                        </th>
+                        <td>
+                            <input type="number" class="form-control mormontInput">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control mormontInput">
+                        </td>
+                        <td>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                                <label class="form-check-label" for="ECDusd">USD</label>
+                                <input class="form-check-input" type="radio" id="ECDusd" checked name="ECDOptions">
+                            </div>
+                            <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <label class="form-check-label" for="ECDeur">EUR</label>
+                                <input class="form-check-input" type="radio" id="ECDeur" name="ECDOptions">
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control mormontInput">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--ALTE CHELTUIELI-->
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12 chenar">
+        <div class="nested col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 row sub-title">
+                <label>Alte cheltuieli (Nu se aplica pentru mobilitati Erasmus+)</label>
+            </div>
+            <div class="table-responsive col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <table class="table">
+                    <tr>
+                        <th>Tip cheltuieli</th>
+                        <th>Suma</th>
+                        <th>Moneda</th>
+                        <th>Sursa de finantare</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Taxe conferinta
+                        </th>
+                        <td>
+                            <input type="number" class="form-control mormontInput">
+                        </td>
+                        <td>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                                <label class="form-check-label" for="TCDron">RON</label>
+                                <input class="form-check-input" type="radio" id="TCDron" checked name="TCDOptions">
+                            </div>
+                            <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <label class="form-check-label" for="TCDeur">EUR</label>
+                                <input class="form-check-input" type="radio" id="TCDeur" name="TCDOptions">
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control mormontInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Taxa de viza
+                        </th>
+
+                        <td>
+                            <input type="number" class="form-control mormontInput">
+                        </td>
+                        <td>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                                <label class="form-check-label" for="TVDron">RON</label>
+                                <input class="form-check-input" type="radio" id="TVDron" checked name="TVDOptions">
+                            </div>
+                            <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <label class="form-check-label" for="TVDeur">EUR</label>
+                                <input class="form-check-input" type="radio" id="TVDeur" name="TVDOptions">
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control mormontInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Taxa de membru
+                        </th>
+
+                        <td>
+                            <input type="number" class="form-control mormontInput">
+                        </td>
+                        <td>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                                <label class="form-check-label" for="TMDron">RON</label>
+                                <input class="form-check-input" type="radio" id="TMDron" checked name="TMDOptions">
+                            </div>
+                            <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <label class="form-check-label" for="TMDeur">EUR</label>
+                                <input class="form-check-input" type="radio" id="TMDeur" name="TMDOptions">
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control mormontInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Taxa de autostrada
+                        </th>
+
+                        <td>
+                            <input type="number" class="form-control mormontInput">
+                        </td>
+                        <td>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                                <label class="form-check-label" for="TADron">RON</label>
+                                <input class="form-check-input" type="radio" id="TADron" checked name="TADOptions">
+                            </div>
+                            <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <label class="form-check-label" for="TADeur">EUR</label>
+                                <input class="form-check-input" type="radio" id="TADeur" name="TADOptions">
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control mormontInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Taxa de parcare
+                        </th>
+
+                        <td>
+                            <input type="number" class="form-control mormontInput">
+                        </td>
+                        <td>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                                <label class="form-check-label" for="TPDron">RON</label>
+                                <input class="form-check-input" type="radio" id="TPDron" checked name="TPDOptions">
+                            </div>
+                            <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <label class="form-check-label" for="TPDeur">EUR</label>
+                                <input class="form-check-input" type="radio" id="TPDeur" name="TPDOptions">
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control mormontInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Taxa de vaccin
+                        </th>
+
+                        <td>
+                            <input type="number" class="form-control mormontInput">
+                        </td>
+                        <td>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                                <label class="form-check-label" for="TVCDron">RON</label>
+                                <input class="form-check-input" type="radio" id="TVCDron" checked name="TVCDOptions">
+                            </div>
+                            <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <label class="form-check-label" for="TVCDeur">EUR</label>
+                                <input class="form-check-input" type="radio" id="TVCDeur" name="TVCDOptions">
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control mormontInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Taxa de achizitie carti
+                        </th>
+
+                        <td>
+                            <input type="number" class="form-control mormontInput">
+                        </td>
+                        <td>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                                <label class="form-check-label" for="TACDron">RON</label>
+                                <input class="form-check-input" type="radio" id="TACDron" checked name="TACDOptions">
+                            </div>
+                            <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <label class="form-check-label" for="TACDeur">EUR</label>
+                                <input class="form-check-input" type="radio" id="TACDeur" name="TACDOptions">
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control mormontInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Asigurare medicala
+                        </th>
+
+                        <td>
+                            <input type="number" class="form-control mormontInput">
+                        </td>
+                        <td>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+                                <label class="form-check-label" for="AMDron">RON</label>
+                                <input class="form-check-input" type="radio" id="AMDron" checked name="AMDOptions">
+                            </div>
+                            <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <label class="form-check-label" for="AMDeur">EUR</label>
+                                <input class="form-check-input" type="radio" id="AMDeur" name="AMDOptions">
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control mormontInput">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12 chenar">
+        <div class="nested col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 row sub-title">
+                <label>Total cheltuieli</label>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label>Suma (EUR)</label>
+                    <input type="text" class="form-control mormontInput" disabled>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label>Suma (RON)</label>
+                    <input type="text" class="form-control mormontInput" disabled>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label>Suma (USD)</label>
+                    <input type="text" class="form-control mormontInput" disabled>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 row sub-title">
+                <label>Avans solicitat</label>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label for="avansEUR">Suma (EUR)</label>
+                    <input type="text" class="form-control mormontInput" id="avansEUR">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label for="avansRON">Suma (RON)</label>
+                    <input type="text" class="form-control mormontInput" id="avansRON">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label for="avansUSD">Suma (USD)</label>
+                    <input type="text" class="form-control mormontInput" id="avansUSD">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12 chenar">
+        <div class="nested col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 row sub-title">
+                <label>Date privind viramentul pentru mobilitati Erasmus+</label>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label for="inputTitularCont">Titularul contului</label>
+                    <input type="text" class="form-control mormontInput" id="inputTitularCont"
+                           placeholder="Titular cont...">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label for="inputCNP">CNP</label>
+                    <input type="text" class="form-control mormontInput" id="inputCNP" placeholder="CNP...">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label for="inputDomiciliu">Domicilu stabil</label>
+                    <input type="text" class="form-control mormontInput" id="inputDomiciliu"
+                           placeholder="Domiciliu stabil...">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label for="inputBanca">Numele bancii</label>
+                    <input type="text" class="form-control mormontInput" id="inputBanca"
+                           placeholder="Numele bancii...">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label for="inputIBAN">IBAN (EUR)</label>
+                    <input type="text" class="form-control mormontInput" id="inputIBAN"
+                           placeholder="IBAN...">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12 chenar">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            <button type="submit" class="btn btn-default submit mormontButton">Submit</button>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 form-check">
+            <label class="form-check-label" for="DRdraft">Draft</label>
+            <input class="form-check-input" type="radio" id="DRdraft" checked name="DROptions">
+        </div>
+        <div class="form-check col-lg-1 col-md-1 col-sm-1 col-xs-1">
+            <label class="form-check-label" for="DRfinal">Final</label>
+            <input class="form-check-input" type="radio" id="DRfinal" name="DROptions">
+        </div>
+    </div>
+</form>
