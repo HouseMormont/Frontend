@@ -16,6 +16,59 @@ angular.module('EasyDocsUBBApp')
         };
         var isSideBarActive = {active: false}; //sidebar active
 
+
+        /*DISPOZITIA RECTORULUI*/
+        var dispozitiaRectorului = {
+            functie: undefined,
+            facultate: undefined,
+            destinatie: undefined,
+            ruta: undefined,
+            dataInceputEveniment: undefined,
+            dataFinalEveniment: undefined,
+            dataPlecare: undefined,
+            dataSosire: undefined,
+            mijlocTransport: {auto: false, autoPersonal: false, autoUBB: false, tren: false, avion: false},
+            telefon: undefined,
+            email: undefined,
+            scopDeplasare: undefined,
+            suportCheltuieli: {solicitant: false, institutie: false, alteSurse: false, altele: undefined},
+            transpAvionTrenMicro: {suma: undefined, moneda: undefined, finantare: undefined},
+            transpAutoPers: {suma: undefined, moneda: undefined, finantare: undefined},
+            transpAuto: {suma: undefined, moneda: undefined, finantare: undefined},
+            transpErasmusPlus: {
+                suma: undefined,
+                moneda: undefined,
+                finantare: {ST: false, AT: false, OM: false, C: false, alteSurse: false, altele: undefined}
+            },
+            transpInternDest: {suma: undefined, moneda: undefined, finantare: undefined},
+            diurna: {moneda: undefined, cuantumpZ: undefined, nrZ: undefined, finantare: undefined},
+            subzisErasmusPlus: {
+                suma: undefined,
+                moneda: undefined,
+                finantare: {ST: false, AT: false, OM: false, C: false,  alteSurse: false,  altele: undefined}
+            },
+            burseMob: {moneda: undefined, cuantumpL: undefined, nrL: undefined, finantare: undefined},
+            cazareDest: {moneda: undefined, cuantumpZ: undefined, nrZ: undefined, finantare: undefined},
+            cazareCalatorie: {moneda: undefined, cuantumpZ: undefined, nrZ: undefined, finantare: undefined},
+            taxeConferinta: {moneda: undefined, suma: undefined, finantare: undefined},
+            taxeViza: {moneda: undefined, suma: undefined, finantare: undefined},
+            taxeMembru: {moneda: undefined, suma: undefined, finantare: undefined},
+            taxeAutostrada: {moneda: undefined, suma: undefined, finantare: undefined},
+            taxeParcare: {moneda: undefined, suma: undefined, finantare: undefined},
+            taxeVaccin: {moneda: undefined, suma: undefined, finantare: undefined},
+            taxeCarti: {moneda: undefined, suma: undefined, finantare: undefined},
+            asigMedicala: {moneda: undefined, suma: undefined, finantare: undefined},
+            sumeTot: {sumaRON: undefined, sumaEUR: undefined, sumaUSD: undefined},
+            avans: {sumaRON: undefined, sumaEUR: undefined, sumaUSD: undefined},
+            dateVirament: {
+                titularCont: undefined,
+                CNP: undefined,
+                domiciliu: undefined,
+                banca: undefined,
+                IBAN: undefined
+            }
+        };
+
         service.isUserLoggedIn = function () {
             Restangular.one('/check_login').get()
                 .then(function (response) {
@@ -79,6 +132,17 @@ angular.module('EasyDocsUBBApp')
                 })
                 .catch(function () {
                     $location.path("/");
+                });
+        };
+
+        service.createDRDoc = function(document) {
+            Restangular.one('/dispozitiaRectorului/create').post(undefined,{"jsonDoc":document})
+                .then(function (response) {
+                    if (response.status == 200) {
+
+                    }
+                })
+                .catch(function () {
                 });
         };
     });
