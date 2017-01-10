@@ -15,5 +15,14 @@ angular.module('EasyDocsUBBApp')
             $ctrl.handleSidebar = function () {
                 AppService.handleSideBar();
             };
+
+            $ctrl.drFormActive = function() {
+                return AppService.getDRFormState();
+            };
+
+            $ctrl.drFormInactive = function() {
+                return !(AppService.getDRFormState());
+            };
+
         }
     });

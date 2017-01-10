@@ -226,7 +226,7 @@ angular.module('EasyDocsUBBApp')
                         IBAN: $ctrl.IBAN
                     }
                 };
-
+                AppService.handleDRForm();
                 AppService.createDRDoc(dispozitiaRectorului);
             }
         }

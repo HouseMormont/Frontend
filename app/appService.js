@@ -15,6 +15,7 @@ angular.module('EasyDocsUBBApp')
             isLoggedIn: false
         };
         var isSideBarActive = {active: false}; //sidebar active
+        var isDRFormActive = {active: false};//Formular dispozitia rectorului activ
 
 
         /*DISPOZITIA RECTORULUI*/
@@ -95,6 +96,14 @@ angular.module('EasyDocsUBBApp')
             return isSideBarActive.active;
         };
 
+        service.handleDRForm = function () {
+            isDRFormActive.active = !(isDRFormActive.active);
+        };
+
+        service.getDRFormState = function () {
+            return isDRFormActive.active;
+        };
+
         service.setLoggedInUserName = function (username) {
             loggedInUser.userName = username;
         };
@@ -135,8 +144,11 @@ angular.module('EasyDocsUBBApp')
                 });
         };
 
+        /*post(subElement, elementToPost, [queryParams, headers]):
+        Does a POST and creates a subElement. Subelement is mandatory and is the nested resource. Element to post is the object to post to the server*/
         service.createDRDoc = function(document) {
-            Restangular.one('/dispozitiaRectorului/create').post(undefined,{"jsonDoc":document})
+            // Restangular.one('/dispozitiaRectorului/create').post(undefined,{jsonDoc:document})
+            Restangular.one('').post('dispozitiaRectorului/create/',{jsonDoc:document})
                 .then(function (response) {
                     if (response.status == 200) {
 

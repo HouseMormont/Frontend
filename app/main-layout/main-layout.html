@@ -16,11 +16,18 @@
                         <span class="glyphicon glyphicon-th-list"></span>
                     </button>
                     <uib-tab class="mormontTab" heading="Documente proprii">
-                        <drform-tag>
+                        <drform-tag ng-show="$ctrl.drFormActive()">
                         </drform-tag>
+                        <mydocs-tag ng-show="$ctrl.drFormInactive()">
+                        </mydocs-tag>
                     </uib-tab>
-                    <uib-tab class="mormontTab" heading="Documente in flux">Tab 1 content</uib-tab>
-                    <uib-tab class="mormontTab" heading="Log documente">Tab 1 content</uib-tab>
+                    <uib-tab class="mormontTab" heading="Documente in flux">
+                        <fluxdocs-tag></fluxdocs-tag>
+                    </uib-tab>
+                    <uib-tab class="mormontTab" heading="Log documente">
+                        <daform-tag>
+                        </daform-tag>
+                    </uib-tab>
                     <uib-tab class="mormontTab" heading="Administrare utilizatori si fluxuri">Tab 1 content</uib-tab>
                 </uib-tabset>
             </div>

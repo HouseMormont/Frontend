@@ -1,0 +1,21 @@
+.myDocs .doc {
+    margin: 5px 0 0;
+    padding: 0;
+    align-content: center;
+    align-items: center;
+    vertical-align: middle;
+    border: 2px solid #69A31B;
+    border-radius: 10px;
+
+}
+
+.myDocs .center {
+    display: inline-block;
+    float: none;
+    text-align: center;
+    padding: 3px;
+}
+
+.myDocs > .mormontButton {
+    width: 100%;
+}

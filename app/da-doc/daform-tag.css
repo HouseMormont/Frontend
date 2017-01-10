@@ -1,0 +1,60 @@
+.formDA {
+    padding: 15px;
+    margin: 10px;
+    border: 2px solid #69A31B;
+    border-radius: 10px;
+    display: inline-block;
+    width: calc(100% - 20px);
+    overflow-y: auto;
+    justify-content: center;
+    align-content: center;
+}
+
+.formDA .form-title {
+    color: #69A31B;
+    font-size: large;
+    text-decoration: underline;
+}
+
+.formDA .sub-title {
+    text-decoration: underline;
+}
+
+.formDA .chenar {
+    border: 1px solid #69A31B;
+    border-radius: 8px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.formDA > .form-group {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.formDA .checks {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.formDA .form-check-label {
+    vertical-align: middle;
+}
+
+.formDR .nested, .nested > div {
+    padding-right: 0;
+}
+
+.formDR > .rightPaddingInput, .nested {
+    padding-right: 0;
+}
+
+.formDR .centered-vertically {
+    justify-content: center;
+    vertical-align: middle;
+    align-content: center;
+    display: inline-block;
+    align-items: center;
+}
