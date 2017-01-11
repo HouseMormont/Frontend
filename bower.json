@@ -13,7 +13,8 @@
     "angular-base64": "^2.0.5",
     "angular-bootstrap": "^2.2.0",
     "angular-cookies": "^1.5.9",
-    "angular-ui-router": "^0.3.2"
+    "angular-ui-router": "^0.3.2",
+    "lodash": "^4.17.4"
   },
   "analytics": false,
   "resolutions": {

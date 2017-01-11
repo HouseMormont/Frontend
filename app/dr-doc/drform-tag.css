@@ -64,7 +64,7 @@
     text-overflow: ellipsis;
 }
 
-.formDR .table th, .table tr {
+.formDR .table th, .table tr, .table td{
     border: 2px double #69A31B;
     text-align: center;
     vertical-align: middle;

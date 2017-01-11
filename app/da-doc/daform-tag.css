@@ -43,18 +43,40 @@
     vertical-align: middle;
 }
 
-.formDR .nested, .nested > div {
+.formDA .nested, .nested > div {
     padding-right: 0;
 }
 
-.formDR > .rightPaddingInput, .nested {
+.formDA > .rightPaddingInput, .nested {
     padding-right: 0;
 }
 
-.formDR .centered-vertically {
+.formDA .centered-vertically {
     justify-content: center;
     vertical-align: middle;
     align-content: center;
     display: inline-block;
     align-items: center;
+}
+
+.formDA .form-check-label {
+    vertical-align: middle;
+}
+
+.formDA .checks {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.formDA .table-responsive {
+    padding-right: 15px;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+.formDA .table th, .table tr {
+    border: 2px double #69A31B;
+    text-align: center;
+    vertical-align: middle;
 }
