@@ -6,77 +6,33 @@ angular.module('EasyDocsUBBApp')
         templateUrl: 'da-doc/daform-tag.html',
         controller: function (AppService) {
             $ctrl = this;
+
             $ctrl.expenses = [];
 
-            $ctrl.facultate;
-            $ctrl.departament;
-            $ctrl.nrInreg;
-            $ctrl.nrInregDGA;
+            // $ctrl.sumaCT;
+            // $ctrl.sumaCTAC;
 
+            // $ctrl.sumaT;
 
-            $ctrl.sumaB;
-            $ctrl.sumaBAC;
-
-            // $ctrl.sumaVP;
-            $ctrl.sumaVPAC;
-
-            $ctrl.DIFN;
-            // $ctrl.sumaDIFN;
-            // $ctrl.sumaDIFNAC;
-            $ctrl.DIFI;
-            // $ctrl.sumaDIFI;
-            // $ctrl.sumaDIFIAC;
-            $ctrl.DICTA;
-            // $ctrl.sumaDICTA;
-            // $ctrl.sumaDICTAAC;
-            $ctrl.sumaCT;
-            $ctrl.sumaCTAC;
-            $ctrl.sponsor;
-            // $ctrl.sumaS;
-            // $ctrl.sumaSAC;
-
-            $ctrl.DIFS;
-            // $ctrl.sumaDIFS;
-            // $ctrl.sumaDIFSAC;
-
-            $ctrl.DIFE;
-            // $ctrl.sumaDIFE;
-            // $ctrl.sumaDIFEAC;
-
-            $ctrl.DITA;
-            // $ctrl.sumaDITA;
-            // $ctrl.sumaDITAAC;
-
-            $ctrl.sumaT;
-            //-- $ctrl.sumaNumerar;
-
-            $ctrl.numeSolicitant;
-            $ctrl.emailSolicitant;
-            $ctrl.telSolicitant;
-
-
-            $ctrl.numeGestionar;
-            $ctrl.emailGestionar;
-            $ctrl.telGestionar;
 
             $ctrl.getSumaCercetareSolicitata = function () {
                 var suma = 0;
-                if($ctrl.sumaDIFN != undefined)
+                if ($ctrl.sumaDIFN != undefined)
                     suma += $ctrl.sumaDIFN;
-                if($ctrl.sumaDIFI != undefined)
+                if ($ctrl.sumaDIFI != undefined)
                     suma += $ctrl.sumaDIFI;
-                if($ctrl.sumaDICTA != undefined)
+                if ($ctrl.sumaDICTA != undefined)
                     suma += $ctrl.sumaDICTA;
                 return suma;
             };
 
             $ctrl.getSumaCercetareAprobata = function () {
                 var suma = 0;
-                if($ctrl.sumaDIFNAC != undefined)
+                if ($ctrl.sumaDIFNAC != undefined)
                     suma += $ctrl.sumaDIFNAC;
-                if($ctrl.sumaDIFIAC != undefined)
+                if ($ctrl.sumaDIFIAC != undefined)
                     suma += $ctrl.sumaDIFIAC;
-                if($ctrl.sumaDICTAAC != undefined)
+                if ($ctrl.sumaDICTAAC != undefined)
                     suma += $ctrl.sumaDICTAAC;
                 return suma;
             };
@@ -88,22 +44,22 @@ angular.module('EasyDocsUBBApp')
 
             $ctrl.getSumaAlteleSolicitata = function () {
                 var suma = 0;
-                if($ctrl.sumaDIFS != undefined)
+                if ($ctrl.sumaDIFS != undefined)
                     suma += $ctrl.sumaDIFS;
-                if($ctrl.sumaDIFE != undefined)
+                if ($ctrl.sumaDIFE != undefined)
                     suma += $ctrl.sumaDIFE;
-                if($ctrl.sumaDITA != undefined)
+                if ($ctrl.sumaDITA != undefined)
                     suma += $ctrl.sumaDITA;
                 return suma;
             };
 
             $ctrl.getSumaAlteleAprobata = function () {
                 var suma = 0;
-                if($ctrl.sumaDIFSAC != undefined)
+                if ($ctrl.sumaDIFSAC != undefined)
                     suma += $ctrl.sumaDIFSAC;
-                if($ctrl.sumaDIFEAC != undefined)
+                if ($ctrl.sumaDIFEAC != undefined)
                     suma += $ctrl.sumaDIFEAC;
-                if($ctrl.sumaDITAAC != undefined)
+                if ($ctrl.sumaDITAAC != undefined)
                     suma += $ctrl.sumaDITAAC;
                 return suma;
             };
@@ -113,21 +69,20 @@ angular.module('EasyDocsUBBApp')
             };
 
 
-
             $ctrl.getSumaTotalaSolicitata = function () {
                 var suma = 0;
-                if($ctrl.sumaS != undefined)
-                suma += $ctrl.sumaS;
-                if($ctrl.sumaVP != undefined)
+                if ($ctrl.sumaS != undefined)
+                    suma += $ctrl.sumaS;
+                if ($ctrl.sumaVP != undefined)
                     suma += $ctrl.sumaVP;
-                return ($ctrl.getSumaCercetareSolicitata() + suma);
+                return ($ctrl.getSumaCercetareSolicitata() + $ctrl.getSumaAlteleSolicitata() + suma);
             };
 
             $ctrl.getSumaTotalaAprobata = function () {
                 var suma = 0;
-                if($ctrl.sumaSAC != undefined)
+                if ($ctrl.sumaSAC != undefined)
                     suma += $ctrl.sumaSAC;
-                if($ctrl.sumaVPAC != undefined)
+                if ($ctrl.sumaVPAC != undefined)
                     suma += $ctrl.sumaVPAC;
                 return ($ctrl.getSumaCercetareAprobata() + $ctrl.getSumaAlteleAprobata() + suma);
             };
@@ -144,7 +99,53 @@ angular.module('EasyDocsUBBApp')
             };
 
             $ctrl.submitForm = function () {
+                var referatNecesitate = {
+                    facultate: $ctrl.facultateDA,
+                    departament: $ctrl.departament,
+                    nrInreg: $ctrl.nrInreg,
+                    nrInregDGA: $ctrl.nrInregDGA,
+                    buget: $ctrl.getSumaTotalaSolicitata(),
+                    bugetAprobat: $ctrl.getSumaTotalaAprobata(),
+                    venitProprSolicitat: $ctrl.sumaVP,
+                    venitProprAprobat: $ctrl.sumaVPAC,
+                    dateFN: $ctrl.DIFN,
+                    sumaFNSolicitat: $ctrl.sumaDIFN,
+                    sumaFNAprobat: $ctrl.sumaDIFNAC,
+                    dateFI: $ctrl.DIFI,
+                    sumaFISolicitat: $ctrl.sumaDIFI,
+                    sumaFIAprobat: $ctrl.sumaDIFIAC,
+                    dateCTA: $ctrl.DICTA,
+                    sumaCTASolicitat: $ctrl.sumaDICTA,
+                    sumaCTAAprobat: $ctrl.sumaDICTAAC,
 
+
+                    denSponsor: $ctrl.sponsor,
+                    sumaSSolicitat: $ctrl.sumaS,
+                    sumaSAprobat: $ctrl.sumaSAC,
+                    dateFS: $ctrl.DIFS,
+                    sumaFSSolicitat: $ctrl.sumaDIFS,
+                    sumaFSAprobat: $ctrl.sumaDIFSAC,
+                    dateFE: $ctrl.DIFE,
+                    sumaFESolicitat: $ctrl.sumaDIFE,
+                    sumaFEAprobat: $ctrl.sumaDIFEAC,
+                    dateTA: $ctrl.DITA,
+                    sumaTASolicitat: $ctrl.sumaDITA,
+                    sumaTAAprobat: $ctrl.sumaDITAAC,
+
+
+                    cheltuieli: $ctrl.expenses,
+
+
+                    numeSol: $ctrl.numeSolicitant,
+                    emailSol: $ctrl.emailSolicitant,
+                    telSol: $ctrl.telSolicitant,
+                    numeG: $ctrl.numeGestionar,
+                    emailG: $ctrl.emailGestionar,
+                    telG: $ctrl.telGestionar
+                };
+
+                // console.log(referatNecesitate);
+                AppService.createDADoc(referatNecesitate);
             };
 
         }

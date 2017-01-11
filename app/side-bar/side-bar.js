@@ -22,6 +22,14 @@ angular.module('EasyDocsUBBApp')
                 return AppService.getDRFormState();
             };
 
+            $ctrl.handleDAForm = function () {
+                AppService.handleDAForm();
+            };
+
+            $ctrl.getDAFormState = function () {
+                return AppService.getDAFormState();
+            };
+
             $ctrl.logout = function () {
                 AppService.logoutUser();
             }

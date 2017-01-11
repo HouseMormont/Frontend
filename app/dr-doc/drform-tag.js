@@ -43,79 +43,82 @@ angular.module('EasyDocsUBBApp')
                     sumEUR += $ctrl.sumaTAC;
                 if ($ctrl.TAMDmoneda === "EUR" && $ctrl.sumaTAM != undefined)
                     sumEUR += $ctrl.sumaTAM;
+                // console.log("Suma EURO:", sumEUR);
                 return sumEUR;
             };
 
             $ctrl.getUSDSum = function () {
-                var sumEUR = 0;
+                var sumUSD = 0;
                 if ($ctrl.ATMmoneda === "USD" && $ctrl.sumaATM != undefined)
-                    sumEUR += $ctrl.sumaATM;
+                    sumUSD += $ctrl.sumaATM;
                 if ($ctrl.Amoneda === "USD" && $ctrl.sumaA != undefined)
-                    sumEUR += $ctrl.sumaA;
+                    sumUSD += $ctrl.sumaA;
                 if ($ctrl.TIDmoneda === "USD" && $ctrl.sumaTID != undefined)
-                    sumEUR += $ctrl.sumaTID;
+                    sumUSD += $ctrl.sumaTID;
                 if ($ctrl.DDmoneda === "USD" && $ctrl.diurnaCpz != undefined && $ctrl.diurnaNz != undefined)
-                    sumEUR += $ctrl.diurnaCpz * $ctrl.diurnaNz;
+                    sumUSD += $ctrl.diurnaCpz * $ctrl.diurnaNz;
                 if ($ctrl.DBMmoneda === "USD" && $ctrl.bursaCL != undefined && $ctrl.bursaNrL != undefined)
-                    sumEUR += $ctrl.bursaCL * $ctrl.bursaNrL;
+                    sumUSD += $ctrl.bursaCL * $ctrl.bursaNrL;
                 if ($ctrl.CDmoneda === "USD" && $ctrl.cazareDestZi != undefined && $ctrl.cazareDestNrZile != undefined)
-                    sumEUR += $ctrl.cazareDestZi * $ctrl.cazareDestNrZile;
+                    sumUSD += $ctrl.cazareDestZi * $ctrl.cazareDestNrZile;
                 if ($ctrl.CCmoneda === "USD" && $ctrl.cazareCalatorieZi != undefined && $ctrl.cazareCalatorieNrZile != undefined)
-                    sumEUR += $ctrl.cazareCalatorieZi * $ctrl.cazareCalatorieNrZile;
+                    sumUSD += $ctrl.cazareCalatorieZi * $ctrl.cazareCalatorieNrZile;
                 if ($ctrl.TCDmoneda === "USD" && $ctrl.sumaTConferinta != undefined)
-                    sumEUR += $ctrl.sumaTConferinta;
+                    sumUSD += $ctrl.sumaTConferinta;
                 if ($ctrl.TVDmoneda === "USD" && $ctrl.sumaTViza != undefined)
-                    sumEUR += $ctrl.sumaTViza;
+                    sumUSD += $ctrl.sumaTViza;
                 if ($ctrl.TMDmoneda === "USD" && $ctrl.sumaTMembru != undefined)
-                    sumEUR += $ctrl.sumaTMembru;
+                    sumUSD += $ctrl.sumaTMembru;
                 if ($ctrl.TADmoneda === "USD" && $ctrl.sumaTAutostrada != undefined)
-                    sumEUR += $ctrl.sumaTAutostrada;
+                    sumUSD += $ctrl.sumaTAutostrada;
                 if ($ctrl.TPDmoneda === "USD" && $ctrl.sumaTParcare != undefined)
-                    sumEUR += $ctrl.sumaTParcare;
+                    sumUSD += $ctrl.sumaTParcare;
                 if ($ctrl.TVCDmoneda === "USD" && $ctrl.sumaTVaccin != undefined)
-                    sumEUR += $ctrl.sumaTVaccin;
+                    sumUSD += $ctrl.sumaTVaccin;
                 if ($ctrl.TACDmoneda === "USD" && $ctrl.sumaTAC != undefined)
-                    sumEUR += $ctrl.sumaTAC;
+                    sumUSD += $ctrl.sumaTAC;
                 if ($ctrl.TAMDmoneda === "USD" && $ctrl.sumaTAM != undefined)
-                    sumEUR += $ctrl.sumaTAM;
-                return sumEUR;
+                    sumUSD += $ctrl.sumaTAM;
+                // console.log("Suma USD:", sumUSD);
+                return sumUSD;
             };
 
             $ctrl.getRONSum = function () {
-                var sumEUR = 0;
+                var sumRON = 0;
                 if ($ctrl.sumaAP != undefined)
-                    sumEUR += $ctrl.sumaAP;
+                    sumRON += $ctrl.sumaAP;
                 if ($ctrl.ATMmoneda === "RON" && $ctrl.sumaATM != undefined)
-                    sumEUR += $ctrl.sumaATM;
+                    sumRON += $ctrl.sumaATM;
                 if ($ctrl.Amoneda === "RON" && $ctrl.sumaA != undefined)
-                    sumEUR += $ctrl.sumaA;
+                    sumRON += $ctrl.sumaA;
                 if ($ctrl.TIDmoneda === "RON" && $ctrl.sumaTID != undefined)
-                    sumEUR += $ctrl.sumaTID;
+                    sumRON += $ctrl.sumaTID;
                 if ($ctrl.DDmoneda === "RON" && $ctrl.diurnaCpz != undefined && $ctrl.diurnaNz != undefined)
-                    sumEUR += $ctrl.diurnaCpz * $ctrl.diurnaNz;
+                    sumRON += $ctrl.diurnaCpz * $ctrl.diurnaNz;
                 if ($ctrl.DBMmoneda === "RON" && $ctrl.bursaCL != undefined && $ctrl.bursaNrL != undefined)
-                    sumEUR += $ctrl.bursaCL * $ctrl.bursaNrL;
+                    sumRON += $ctrl.bursaCL * $ctrl.bursaNrL;
                 if ($ctrl.CDmoneda === "RON" && $ctrl.cazareDestZi != undefined && $ctrl.cazareDestNrZile != undefined)
-                    sumEUR += $ctrl.cazareDestZi * $ctrl.cazareDestNrZile;
+                    sumRON += $ctrl.cazareDestZi * $ctrl.cazareDestNrZile;
                 if ($ctrl.CCmoneda === "RON" && $ctrl.cazareCalatorieZi != undefined && $ctrl.cazareCalatorieNrZile != undefined)
-                    sumEUR += $ctrl.cazareCalatorieZi * $ctrl.cazareCalatorieNrZile;
+                    sumRON += $ctrl.cazareCalatorieZi * $ctrl.cazareCalatorieNrZile;
                 if ($ctrl.TCDmoneda === "RON" && $ctrl.sumaTConferinta != undefined)
-                    sumEUR += $ctrl.sumaTConferinta;
+                    sumRON += $ctrl.sumaTConferinta;
                 if ($ctrl.TVDmoneda === "RON" && $ctrl.sumaTViza != undefined)
-                    sumEUR += $ctrl.sumaTViza;
+                    sumRON += $ctrl.sumaTViza;
                 if ($ctrl.TMDmoneda === "RON" && $ctrl.sumaTMembru != undefined)
-                    sumEUR += $ctrl.sumaTMembru;
+                    sumRON += $ctrl.sumaTMembru;
                 if ($ctrl.TADmoneda === "RON" && $ctrl.sumaTAutostrada != undefined)
-                    sumEUR += $ctrl.sumaTAutostrada;
-                if ($ctrl.TPDmoneda === "USD" && $ctrl.sumaTParcare != undefined)
-                    sumEUR += $ctrl.sumaTParcare;
+                    sumRON += $ctrl.sumaTAutostrada;
+                if ($ctrl.TPDmoneda === "RON" && $ctrl.sumaTParcare != undefined)
+                    sumRON += $ctrl.sumaTParcare;
                 if ($ctrl.TVCDmoneda === "RON" && $ctrl.sumaTVaccin != undefined)
-                    sumEUR += $ctrl.sumaTVaccin;
+                    sumRON += $ctrl.sumaTVaccin;
                 if ($ctrl.TACDmoneda === "RON" && $ctrl.sumaTAC != undefined)
-                    sumEUR += $ctrl.sumaTAC;
+                    sumRON += $ctrl.sumaTAC;
                 if ($ctrl.TAMDmoneda === "RON" && $ctrl.sumaTAM != undefined)
-                    sumEUR += $ctrl.sumaTAM;
-                return sumEUR;
+                    sumRON += $ctrl.sumaTAM;
+                // console.log("Suma RON:", sumRON);
+                return sumRON;
             };
 
             $ctrl.submitForm = function () {
@@ -226,7 +229,6 @@ angular.module('EasyDocsUBBApp')
                         IBAN: $ctrl.IBAN
                     }
                 };
-                AppService.handleDRForm();
                 AppService.createDRDoc(dispozitiaRectorului);
             }
         }

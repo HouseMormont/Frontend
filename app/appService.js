@@ -16,6 +16,7 @@ angular.module('EasyDocsUBBApp')
         };
         var isSideBarActive = {active: false}; //sidebar active
         var isDRFormActive = {active: false};//Formular dispozitia rectorului activ
+        var isDAFormActive = {active: false};//Formular dispozitia rectorului activ
 
 
         /*DISPOZITIA RECTORULUI*/
@@ -100,8 +101,16 @@ angular.module('EasyDocsUBBApp')
             isDRFormActive.active = !(isDRFormActive.active);
         };
 
+        service.handleDAForm = function () {
+            isDAFormActive.active = !(isDAFormActive.active);
+        };
+
         service.getDRFormState = function () {
             return isDRFormActive.active;
+        };
+
+        service.getDAFormState = function () {
+            return isDAFormActive.active;
         };
 
         service.setLoggedInUserName = function (username) {
@@ -147,14 +156,22 @@ angular.module('EasyDocsUBBApp')
         /*post(subElement, elementToPost, [queryParams, headers]):
         Does a POST and creates a subElement. Subelement is mandatory and is the nested resource. Element to post is the object to post to the server*/
         service.createDRDoc = function(document) {
-            // Restangular.one('/dispozitiaRectorului/create').post(undefined,{jsonDoc:document})
-            Restangular.one('').post('dispozitiaRectorului/create/',{jsonDoc:document})
-                .then(function (response) {
-                    if (response.status == 200) {
-
-                    }
-                })
-                .catch(function () {
-                });
+            alert("Service!");
+            console.log(document);
+            // // Restangular.one('/dispozitiaRectorului/create').post(undefined,{jsonDoc:document})
+            // Restangular.one('').post('dispozitiaRectorului/create/',{jsonDoc:document})
+            //     .then(function (response) {
+            //         if (response.status == 200) {
+            //
+            //         }
+            //     })
+            //     .catch(function () {
+            //     });
         };
+
+        service.createDADoc = function(document) {
+            alert("Service!");
+            console.log(document);
+        };
+
     });
