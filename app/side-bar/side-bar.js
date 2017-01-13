@@ -15,7 +15,10 @@ angular.module('EasyDocsUBBApp')
             };
 
             $ctrl.handleDRForm = function () {
-                AppService.handleDRForm();
+                if(AppService.getDAFormState() === "true")
+                    AppService.handleDAForm();
+                AppService.setActiveTab(0);
+                AppService.handleDRForm("D");
             };
 
             $ctrl.getDRFormState = function () {
@@ -23,7 +26,10 @@ angular.module('EasyDocsUBBApp')
             };
 
             $ctrl.handleDAForm = function () {
-                AppService.handleDAForm();
+                if(AppService.getDRFormState() === "true")
+                    AppService.handleDRForm();
+                AppService.setActiveTab(1);
+                AppService.handleDAForm("D");
             };
 
             $ctrl.getDAFormState = function () {

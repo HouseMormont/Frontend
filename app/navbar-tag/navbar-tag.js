@@ -1,9 +1,9 @@
 /**
- * Created by Lucian Bredean on 11/22/2016.
+ * Created by Lucian Bredean on 1/12/2017.
  */
 angular.module('EasyDocsUBBApp')
-    .component('mainLayout', {
-        templateUrl: 'main-layout/main-layout.html',
+    .component('navbarTag', {
+        templateUrl: 'navbar-tag/navbar-tag.html',
         controller: function (AppService) {
             $ctrl = this;
 
@@ -13,6 +13,18 @@ angular.module('EasyDocsUBBApp')
 
             $ctrl.handleSidebar = function () {
                 AppService.handleSideBar();
+            };
+
+            $ctrl.getActiveTab = function () {
+                return AppService.getActiveTab();
+            };
+
+            $ctrl.setActiveTab = function(index) {
+                AppService.setActiveTab(index);
+                if(index === 0)
+                    AppService.handleDRForm();
+                if(index === 1)
+                    AppService.handleDAForm();
             };
 
             $ctrl.drFormActive = function () {
@@ -29,10 +41,6 @@ angular.module('EasyDocsUBBApp')
 
             $ctrl.daFormInactive = function () {
                 return !(AppService.getDAFormState());
-            };
-
-            $ctrl.getActiveTab = function () {
-                return AppService.getActiveTab();
             };
         }
     });

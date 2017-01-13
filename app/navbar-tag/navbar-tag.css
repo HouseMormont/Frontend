@@ -1,0 +1,28 @@
+.navbar .nav-tabs .active > a {
+    background-color: #69A31B;
+    color: white;
+}
+
+.navbar .nav-tabs .active > a:hover{
+    background-color: white;
+    color: darkgrey;
+    border: solid 1px lightgrey;
+}
+
+.navbar .nav-tabs > li > a {
+    color: black;
+    cursor: default;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: solid 1px darkgrey;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.navbar .nav-tabs {
+    margin: 5px;
+}
+
+.navbar > ul{
+    border: none;
+}

@@ -5,7 +5,12 @@ angular.module('EasyDocsUBBApp')
     .component('drformTag', {
         templateUrl: 'dr-doc/drform-tag.html',
         controller: function (AppService) {
-            $ctrl = this;
+            var $ctrl = this;
+
+            $ctrl.handleForm = function () {
+                AppService.setActiveTab(2);
+                AppService.handleDRForm("D");
+            };
 
             $ctrl.getEURSum = function () {
                 var sumEUR = 0;
@@ -43,7 +48,6 @@ angular.module('EasyDocsUBBApp')
                     sumEUR += $ctrl.sumaTAC;
                 if ($ctrl.TAMDmoneda === "EUR" && $ctrl.sumaTAM != undefined)
                     sumEUR += $ctrl.sumaTAM;
-                // console.log("Suma EURO:", sumEUR);
                 return sumEUR;
             };
 
@@ -79,7 +83,6 @@ angular.module('EasyDocsUBBApp')
                     sumUSD += $ctrl.sumaTAC;
                 if ($ctrl.TAMDmoneda === "USD" && $ctrl.sumaTAM != undefined)
                     sumUSD += $ctrl.sumaTAM;
-                // console.log("Suma USD:", sumUSD);
                 return sumUSD;
             };
 
@@ -117,7 +120,6 @@ angular.module('EasyDocsUBBApp')
                     sumRON += $ctrl.sumaTAC;
                 if ($ctrl.TAMDmoneda === "RON" && $ctrl.sumaTAM != undefined)
                     sumRON += $ctrl.sumaTAM;
-                // console.log("Suma RON:", sumRON);
                 return sumRON;
             };
 
@@ -219,7 +221,7 @@ angular.module('EasyDocsUBBApp')
                     taxeVaccin: {moneda: $ctrl.TVCDmoneda, suma: $ctrl.sumaTVaccin, finantare: $ctrl.finantareTVaccin},
                     taxeCarti: {moneda: $ctrl.TACDmoneda, suma: $ctrl.sumaTAC, finantare: $ctrl.finantareTAC},
                     asigMedicala: {moneda: $ctrl.TAMDmoneda, suma: $ctrl.sumaTAM, finantare: $ctrl.finantareTAM},
-                    sumeTot: {sumaRON: $ctrl.getRONSum(), sumaEUR: $ctrl.getEURSum(), sumaUSD: $ctrl.getUSDSum()},
+                    // sumeTot: {sumaRON: $ctrl.getRONSum(), sumaEUR: $ctrl.getEURSum(), sumaUSD: $ctrl.getUSDSum()},
                     avans: {sumaRON: $ctrl.sumaRONavans, sumaEUR: $ctrl.sumaEURavans, sumaUSD: $ctrl.sumaUSDavans},
                     dateVirament: {
                         titularCont: $ctrl.titularCont,
@@ -229,6 +231,7 @@ angular.module('EasyDocsUBBApp')
                         IBAN: $ctrl.IBAN
                     }
                 };
+                AppService.setActiveTab(2);
                 AppService.createDRDoc(dispozitiaRectorului);
             }
         }

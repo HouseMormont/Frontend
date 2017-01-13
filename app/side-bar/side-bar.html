@@ -7,10 +7,10 @@
         <button type="button" class="btn btn-default mormontInput" ng-click="$ctrl.handleSidebar()">Inapoi la ecranul principal</button>
     </li>
     <li>
-        <button type="button" class="btn btn-default mormontInput" ng-click="$ctrl.handleDRForm()" ng-disabled="$ctrl.getDRFormState()">Creeaza document 'Dispozitia rectorului'</button>
+        <button type="button" class="btn btn-default mormontInput" ng-click="$ctrl.handleDRForm()" ng-disabled="$ctrl.getDRFormState() || $ctrl.getDAFormState()">Creeaza document 'Dispozitia rectorului'</button>
     </li>
     <li>
-        <button type="button" class="btn btn-default mormontInput" ng-click="$ctrl.handleDAForm()" ng-disabled="$ctrl.getDAFormState()">Creeaza document 'Desfasurarea achizitiilor'</button>
+        <button type="button" class="btn btn-default mormontInput" ng-click="$ctrl.handleDAForm()" ng-disabled="$ctrl.getDAFormState() || $ctrl.getDRFormState()">Creeaza document 'Referat necesitate'</button>
     </li>
     <li>
         <button type="button" class="btn btn-default mormontInput" ng-click="$ctrl.logout()">Logout</button>

@@ -11,33 +11,21 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <uib-tabset type="pills">
-                    <button type="button" class="btn btn-default mormontInput" ng-click="$ctrl.handleSidebar()">
-                        <span class="glyphicon glyphicon-th-list"></span>
-                    </button>
-                    <uib-tab class="mormontTab" heading="Documente proprii">
-                        <!--<drform-tag ng-show="$ctrl.drFormActive() && $ctrl.daFormInactive()">-->
-                        <!--</drform-tag>-->
-                        <!--<daform-tag ng-show="$ctrl.daFormActive() && $ctrl.drFormInactive()">-->
-                        <!--</daform-tag>-->
-                        <!--<mydocs-tag ng-show="$ctrl.drFormInactive() && $ctrl.daFormInactive()">-->
-                        <!--</mydocs-tag>-->
-
-                        <!--<drform-tag>-->
-                        <!--</drform-tag>-->
-                        <!--<daform-tag>-->
-                        <!--</daform-tag>-->
-                    </uib-tab>
-                    <uib-tab class="mormontTab" heading="Documente in flux">
-                        <fluxdocs-tag></fluxdocs-tag>
-                    </uib-tab>
-                    <uib-tab class="mormontTab" heading="Log documente">
-                        <!--<daform-tag>-->
-                        <!--</daform-tag>-->
-                        <drform-tag>    </drform-tag>
-                    </uib-tab>
-                    <uib-tab class="mormontTab" heading="Administrare utilizatori si fluxuri">Tab 1 content</uib-tab>
-                </uib-tabset>
+                <div class="row">
+                    <navbar-tag></navbar-tag>
+                </div>
+                <div class="row" ng-show="$ctrl.daFormActive() && $ctrl.drFormInactive()">
+                    <rnform-tag></rnform-tag>
+                </div>
+                <div class="row" ng-show="$ctrl.drFormActive() && $ctrl.daFormInactive()">
+                    <drform-tag></drform-tag>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-show="$ctrl.getActiveTab() == 2">
+                    <mydocs-tag></mydocs-tag>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-show="$ctrl.getActiveTab() == 3">
+                    <fluxdocs-tag></fluxdocs-tag>
+                </div>
             </div>
         </div>
     </div>

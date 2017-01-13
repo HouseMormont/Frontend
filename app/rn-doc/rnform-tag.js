@@ -2,10 +2,55 @@
  * Created by Lucian Bredean on 1/9/2017.
  */
 angular.module('EasyDocsUBBApp')
-    .component('daformTag', {
-        templateUrl: 'da-doc/daform-tag.html',
-        controller: function (AppService) {
+    .component('rnformTag', {
+        templateUrl: 'rn-doc/rnform-tag.html',
+        controller: function (AppService, $scope) {
             $ctrl = this;
+
+            $scope.rN = {
+                facultateDA: undefined,
+                departament: undefined,
+                nrInreg: undefined,
+                nrInregDGA: undefined,
+                // buget: $ctrl.getSumaTotalaSolicitata(),
+                // bugetAprobat: $ctrl.getSumaTotalaAprobata(),
+                venitProprSolicitat: undefined,
+                venitProprAprobat: undefined,
+                dateFN: undefined,
+                sumaFNSolicitat: undefined,
+                sumaFNAprobat: undefined,
+                dateFI: undefined,
+                sumaFISolicitat: undefined,
+                sumaFIAprobat: undefined,
+                dateCTA: undefined,
+                sumaCTASolicitat: undefined,
+                sumaCTAAprobat: undefined,
+
+
+                denSponsor: undefined,
+                sumaSSolicitat: undefined,
+                sumaSAprobat: undefined,
+                dateFS: undefined,
+                sumaFSSolicitat: undefined,
+                sumaFSAprobat: undefined,
+                dateFE: undefined,
+                sumaFESolicitat: undefined,
+                sumaFEAprobat: undefined,
+                dateTA: undefined,
+                sumaTASolicitat: undefined,
+                sumaTAAprobat: undefined,
+
+
+                cheltuieli: [],
+
+
+                numeSol: undefined,
+                emailSol: undefined,
+                telSol: undefined,
+                numeG: undefined,
+                emailG: undefined,
+                telG: undefined
+            };
 
             $ctrl.expenses = [];
 
@@ -14,6 +59,10 @@ angular.module('EasyDocsUBBApp')
 
             // $ctrl.sumaT;
 
+            $ctrl.handleForm = function () {
+                AppService.setActiveTab(2);
+                AppService.handleDAForm("D");
+            };
 
             $ctrl.getSumaCercetareSolicitata = function () {
                 var suma = 0;
@@ -37,9 +86,9 @@ angular.module('EasyDocsUBBApp')
                 return suma;
             };
 
-            $ctrl.getSumaCercetare = function () {
-                return ($ctrl.getSumaCercetareSolicitata() + $ctrl.getSumaCercetareAprobata());
-            };
+            // $ctrl.getSumaCercetare = function () {
+            //     return (ctrl.getSumaCercetareSolicitata() + $ctrl.getSumaCercetareAprobata());
+            // };
 
 
             $ctrl.getSumaAlteleSolicitata = function () {
@@ -64,10 +113,28 @@ angular.module('EasyDocsUBBApp')
                 return suma;
             };
 
-            $ctrl.getSumaAltele = function () {
-                return ($ctrl.getSumaAlteleSolicitata() + $ctrl.getSumaAlteleAprobata());
-            };
+            // $ctrl.getSumaAltele = function () {
+            //     return ($ctrl.getSumaAlteleSolicitata() + $ctrl.getSumaAlteleAprobata());
+            // };
 
+
+            // $ctrl.getSumaTotalaSolicitata = function () {
+            //     var suma = 0;
+            //     if ($ctrl.sumaS != undefined)
+            //         suma += $ctrl.sumaS;
+            //     if ($ctrl.sumaVP != undefined)
+            //         suma += $ctrl.sumaVP;
+            //     return ($ctrl.getSumaCercetareSolicitata() + $ctrl.getSumaAlteleSolicitata() + suma);
+            // };
+
+            // $ctrl.getSumaTotalaAprobata = function () {
+            //     var suma = 0;
+            //     if ($ctrl.sumaSAC != undefined)
+            //         suma += $ctrl.sumaSAC;
+            //     if ($ctrl.sumaVPAC != undefined)
+            //         suma += $ctrl.sumaVPAC;
+            //     return ($ctrl.getSumaCercetareAprobata() + $ctrl.getSumaAlteleAprobata() + suma);
+            // };
 
             $ctrl.getSumaTotalaSolicitata = function () {
                 var suma = 0;
@@ -75,7 +142,19 @@ angular.module('EasyDocsUBBApp')
                     suma += $ctrl.sumaS;
                 if ($ctrl.sumaVP != undefined)
                     suma += $ctrl.sumaVP;
-                return ($ctrl.getSumaCercetareSolicitata() + $ctrl.getSumaAlteleSolicitata() + suma);
+                if ($ctrl.sumaDIFN != undefined)
+                    suma += $ctrl.sumaDIFN;
+                if ($ctrl.sumaDIFI != undefined)
+                    suma += $ctrl.sumaDIFI;
+                if ($ctrl.sumaDICTA != undefined)
+                    suma += $ctrl.sumaDICTA;
+                if ($ctrl.sumaDIFS != undefined)
+                    suma += $ctrl.sumaDIFS;
+                if ($ctrl.sumaDIFE != undefined)
+                    suma += $ctrl.sumaDIFE;
+                if ($ctrl.sumaDITA != undefined)
+                    suma += $ctrl.sumaDITA;
+                return suma;
             };
 
             $ctrl.getSumaTotalaAprobata = function () {
@@ -84,7 +163,19 @@ angular.module('EasyDocsUBBApp')
                     suma += $ctrl.sumaSAC;
                 if ($ctrl.sumaVPAC != undefined)
                     suma += $ctrl.sumaVPAC;
-                return ($ctrl.getSumaCercetareAprobata() + $ctrl.getSumaAlteleAprobata() + suma);
+                if ($ctrl.sumaDIFNAC != undefined)
+                    suma += $ctrl.sumaDIFNAC;
+                if ($ctrl.sumaDIFIAC != undefined)
+                    suma += $ctrl.sumaDIFIAC;
+                if ($ctrl.sumaDICTAAC != undefined)
+                    suma += $ctrl.sumaDICTAAC;
+                if ($ctrl.sumaDIFSAC != undefined)
+                    suma += $ctrl.sumaDIFSAC;
+                if ($ctrl.sumaDIFEAC != undefined)
+                    suma += $ctrl.sumaDIFEAC;
+                if ($ctrl.sumaDITAAC != undefined)
+                    suma += $ctrl.sumaDITAAC;
+                return suma;
             };
 
             $ctrl.addReccord = function () {
@@ -104,8 +195,8 @@ angular.module('EasyDocsUBBApp')
                     departament: $ctrl.departament,
                     nrInreg: $ctrl.nrInreg,
                     nrInregDGA: $ctrl.nrInregDGA,
-                    buget: $ctrl.getSumaTotalaSolicitata(),
-                    bugetAprobat: $ctrl.getSumaTotalaAprobata(),
+                    // buget: $ctrl.getSumaTotalaSolicitata(),
+                    // bugetAprobat: $ctrl.getSumaTotalaAprobata(),
                     venitProprSolicitat: $ctrl.sumaVP,
                     venitProprAprobat: $ctrl.sumaVPAC,
                     dateFN: $ctrl.DIFN,
@@ -145,7 +236,10 @@ angular.module('EasyDocsUBBApp')
                 };
 
                 // console.log(referatNecesitate);
-                AppService.createDADoc(referatNecesitate);
+                console.log(rN);
+
+                AppService.setActiveTab(2);
+                AppService.createDADoc(rN);
             };
 
         }
