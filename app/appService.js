@@ -169,18 +169,18 @@ angular.module('EasyDocsUBBApp')
         /*post(subElement, elementToPost, [queryParams, headers]):
          Does a POST and creates a subElement. Subelement is mandatory and is the nested resource. Element to post is the object to post to the server*/
         service.createDRDoc = function (document) {
-            alert("Service DR!");
-            console.log(document);
+            // alert("Service DR!");
+            // console.log(document);
             service.handleDRForm();
-            // // Restangular.one('/dispozitiaRectorului/create').post(undefined,{jsonDoc:document})
-            // Restangular.one('').post('dispozitiaRectorului/create/',{jsonDoc:document})
-            //     .then(function (response) {
-            //         if (response.status == 200) {
-            //
-            //         }
-            //     })
-            //     .catch(function () {
-            //     });
+            // Restangular.one('/dispozitiaRectorului/create').post(undefined,{jsonDoc:document})
+            Restangular.one('').post('dispozitiaRectorului/create/', {jsonDoc: document})
+                .then(function (response) {
+                    if (response.status == 200) {
+
+                    }
+                })
+                .catch(function () {
+                });
         };
 
         service.createDADoc = function (document) {
