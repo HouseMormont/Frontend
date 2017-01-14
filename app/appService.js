@@ -2,7 +2,7 @@
  * Created by Lucian Bredean on 11/15/2016.
  */
 angular.module('EasyDocsUBBApp')
-    .service('AppService', function (Restangular, $base64, $location) {
+    .service('AppService', function (Restangular, $base64, $location, $q) {
         // Restangular.setBaseUrl('http://172.30.117.30:8080');
         Restangular.setBaseUrl('http://localhost:8080');
 
@@ -19,58 +19,20 @@ angular.module('EasyDocsUBBApp')
         var isDAFormActive = {active: false};//Formular dispozitia rectorului activ
         var activeTab = {index: 2};
 
-
-        // /*DISPOZITIA RECTORULUI*/
-        // var dispozitiaRectorului = {
-        //     functie: undefined,
-        //     facultate: undefined,
-        //     destinatie: undefined,
-        //     ruta: undefined,
-        //     dataInceputEveniment: undefined,
-        //     dataFinalEveniment: undefined,
-        //     dataPlecare: undefined,
-        //     dataSosire: undefined,
-        //     mijlocTransport: {auto: false, autoPersonal: false, autoUBB: false, tren: false, avion: false},
-        //     telefon: undefined,
-        //     email: undefined,
-        //     scopDeplasare: undefined,
-        //     suportCheltuieli: {solicitant: false, institutie: false, alteSurse: false, altele: undefined},
-        //     transpAvionTrenMicro: {suma: undefined, moneda: undefined, finantare: undefined},
-        //     transpAutoPers: {suma: undefined, moneda: undefined, finantare: undefined},
-        //     transpAuto: {suma: undefined, moneda: undefined, finantare: undefined},
-        //     transpErasmusPlus: {
-        //         suma: undefined,
-        //         moneda: undefined,
-        //         finantare: {ST: false, AT: false, OM: false, C: false, alteSurse: false, altele: undefined}
-        //     },
-        //     transpInternDest: {suma: undefined, moneda: undefined, finantare: undefined},
-        //     diurna: {moneda: undefined, cuantumpZ: undefined, nrZ: undefined, finantare: undefined},
-        //     subzisErasmusPlus: {
-        //         suma: undefined,
-        //         moneda: undefined,
-        //         finantare: {ST: false, AT: false, OM: false, C: false, alteSurse: false, altele: undefined}
-        //     },
-        //     burseMob: {moneda: undefined, cuantumpL: undefined, nrL: undefined, finantare: undefined},
-        //     cazareDest: {moneda: undefined, cuantumpZ: undefined, nrZ: undefined, finantare: undefined},
-        //     cazareCalatorie: {moneda: undefined, cuantumpZ: undefined, nrZ: undefined, finantare: undefined},
-        //     taxeConferinta: {moneda: undefined, suma: undefined, finantare: undefined},
-        //     taxeViza: {moneda: undefined, suma: undefined, finantare: undefined},
-        //     taxeMembru: {moneda: undefined, suma: undefined, finantare: undefined},
-        //     taxeAutostrada: {moneda: undefined, suma: undefined, finantare: undefined},
-        //     taxeParcare: {moneda: undefined, suma: undefined, finantare: undefined},
-        //     taxeVaccin: {moneda: undefined, suma: undefined, finantare: undefined},
-        //     taxeCarti: {moneda: undefined, suma: undefined, finantare: undefined},
-        //     asigMedicala: {moneda: undefined, suma: undefined, finantare: undefined},
-        //     sumeTot: {sumaRON: undefined, sumaEUR: undefined, sumaUSD: undefined},
-        //     avans: {sumaRON: undefined, sumaEUR: undefined, sumaUSD: undefined},
-        //     dateVirament: {
-        //         titularCont: undefined,
-        //         CNP: undefined,
-        //         domiciliu: undefined,
-        //         banca: undefined,
-        //         IBAN: undefined
-        //     }
-        // };
+        service.getAllDocs = function () {
+            return (Restangular.one('').post('getAllDocuments')
+                .then(function (response) {
+                    if (response.status == 200) {
+                        return response.data;
+                    }
+                })
+                .catch(function (response) {
+                    console.log("Get all docs error:" + response);
+                    return false;
+                })).then(function (result) {
+                return result.slice(0, result.length);
+            });
+        };
 
         service.isUserLoggedIn = function () {
             Restangular.one('/check_login').get()
@@ -87,7 +49,6 @@ angular.module('EasyDocsUBBApp')
                     console.log("test login error:" + response);
                     return false;
                 });
-            // return loggedInUser.isLoggedIn;
         };
 
         service.handleSideBar = function () {
@@ -169,14 +130,10 @@ angular.module('EasyDocsUBBApp')
         /*post(subElement, elementToPost, [queryParams, headers]):
          Does a POST and creates a subElement. Subelement is mandatory and is the nested resource. Element to post is the object to post to the server*/
         service.createDRDoc = function (document) {
-            // alert("Service DR!");
-            // console.log(document);
             service.handleDRForm();
-            // Restangular.one('/dispozitiaRectorului/create').post(undefined,{jsonDoc:document})
             Restangular.one('').post('dispozitiaRectorului/create/', {jsonDoc: document})
                 .then(function (response) {
                     if (response.status == 200) {
-
                     }
                 })
                 .catch(function () {
@@ -188,5 +145,4 @@ angular.module('EasyDocsUBBApp')
             service.handleDAForm();
             console.log(document);
         };
-
     });

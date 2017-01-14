@@ -1,10 +1,33 @@
 <div class="myDocs">
-    <div ng-repeat="item in $ctrl.docItems" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 doc">
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 doc">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
+            Id document
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 center">
+            Tip document
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
+            Versiune document
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
+            Data cereare document
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
+            Operatii document
+        </div>
+    </div>
+    <div ng-repeat="item in $ctrl.docItems.$$state.value" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 doc">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
             {{item.id}}
         </div>
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 center">
-            {{item.nume}}
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 center">
+            {{item.tipDocumet}}
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
+            {{item.versiune}}
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
+            {{item.data}}
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 center">
             <button class="btn btn-default mormontButton">Editeaza</button>

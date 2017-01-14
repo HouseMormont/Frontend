@@ -231,8 +231,9 @@ angular.module('EasyDocsUBBApp')
                         IBAN: $ctrl.IBAN
                     }
                 };
-                AppService.setActiveTab(2);
                 AppService.createDRDoc(dispozitiaRectorului);
+                AppService.setActiveTab(2);
+                // console.log(AppService.getAllDR());
             }
         }
     });

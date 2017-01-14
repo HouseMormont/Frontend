@@ -6,8 +6,8 @@ angular.module('EasyDocsUBBApp')
         templateUrl: 'mydocs-tag/mydocs-tag.html',
         controller: function (AppService) {
             $ctrl = this;
-
-            $ctrl.docItems = [{id:"1", nume:"nume1"}, {id:"2", nume:"nume2"}];
-
+            $ctrl.$onChanges = function(){
+                $ctrl.docItems = AppService.getAllDocs();
+            };
         }
     });
