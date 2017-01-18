@@ -2,7 +2,7 @@
  * Created by Lucian Bredean on 11/15/2016.
  */
 angular.module('EasyDocsUBBApp')
-    .service('AppService', function (Restangular, $base64, $location, $q) {
+    .service('AppService', function (Restangular, $base64, $location) {
         // Restangular.setBaseUrl('http://172.30.117.30:8080');
         Restangular.setBaseUrl('http://localhost:8080');
 
@@ -171,10 +171,17 @@ angular.module('EasyDocsUBBApp')
         };
 
         service.makeFinal = function (document) {
+            service.setActiveTab(-1);
             Restangular.one('').post('finalizare', document)
                 .then(function (response) {
                     if (response.status == 200) {
-                        myDocs.userDocs = service.getAllDocs();
+                        var docItemsPromise = service.getAllDocs();
+                        docItemsPromise.then(
+                            function(response) {
+                                myDocs.userDocs = response;
+                                service.setActiveTab(2);
+                            }
+                        );
                     }
                 })
                 .catch(function () {
@@ -185,7 +192,12 @@ angular.module('EasyDocsUBBApp')
             Restangular.one('').post('delete', document)
                 .then(function (response) {
                     if (response.status == 200) {
-                        myDocs.userDocs = service.getAllDocs();
+                        var docItemsPromise = service.getAllDocs();
+                        docItemsPromise.then(
+                            function(response) {
+                                myDocs.userDocs = response;
+                            }
+                        );
                     }
                 })
                 .catch(function () {
