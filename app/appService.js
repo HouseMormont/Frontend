@@ -18,6 +18,7 @@ angular.module('EasyDocsUBBApp')
         var isDRFormActive = {active: false};//Formular dispozitia rectorului activ
         var isDAFormActive = {active: false};//Formular dispozitia rectorului activ
         var activeTab = {index: 2};
+        var myDocs = {userDocs: undefined};
 
         service.getAllDocs = function () {
             return (Restangular.one('').post('getAllDocuments')
@@ -27,9 +28,9 @@ angular.module('EasyDocsUBBApp')
                     }
                 })
                 .catch(function (response) {
-                    console.log("Get all docs error:" + response);
                     return false;
                 })).then(function (result) {
+                myDocs.userDocs = result.slice(0, result.length);
                 return result.slice(0, result.length);
             });
         };
@@ -134,15 +135,60 @@ angular.module('EasyDocsUBBApp')
             Restangular.one('').post('dispozitiaRectorului/create/', {jsonDoc: document})
                 .then(function (response) {
                     if (response.status == 200) {
+                        var docItemsPromise = service.getAllDocs();
+                        docItemsPromise.then(
+                            function(response) {
+                                myDocs.userDocs = response;
+                                service.setActiveTab(2);
+                            }
+                        );
                     }
                 })
                 .catch(function () {
                 });
         };
 
+        service.getMyDocs = function() {
+            return myDocs.userDocs;
+        };
+
         service.createDADoc = function (document) {
-            alert("Service DA!");
             service.handleDAForm();
-            console.log(document);
+            Restangular.one('').post('referatNecesitate/create/', {jsonDoc: document})
+                .then(function (response) {
+                    if (response.status == 200) {
+                        var docItemsPromise = service.getAllDocs();
+                        docItemsPromise.then(
+                            function(response) {
+                                myDocs.userDocs = response;
+                                service.setActiveTab(2);
+                            }
+                        );
+                    }
+                })
+                .catch(function () {
+                });
+        };
+
+        service.makeFinal = function (document) {
+            Restangular.one('').post('finalizare', document)
+                .then(function (response) {
+                    if (response.status == 200) {
+                        myDocs.userDocs = service.getAllDocs();
+                    }
+                })
+                .catch(function () {
+                });
+        };
+
+        service.delete = function (document) {
+            Restangular.one('').post('delete', document)
+                .then(function (response) {
+                    if (response.status == 200) {
+                        myDocs.userDocs = service.getAllDocs();
+                    }
+                })
+                .catch(function () {
+                });
         };
     });

@@ -221,7 +221,7 @@ angular.module('EasyDocsUBBApp')
                     taxeVaccin: {moneda: $ctrl.TVCDmoneda, suma: $ctrl.sumaTVaccin, finantare: $ctrl.finantareTVaccin},
                     taxeCarti: {moneda: $ctrl.TACDmoneda, suma: $ctrl.sumaTAC, finantare: $ctrl.finantareTAC},
                     asigMedicala: {moneda: $ctrl.TAMDmoneda, suma: $ctrl.sumaTAM, finantare: $ctrl.finantareTAM},
-                    // sumeTot: {sumaRON: $ctrl.getRONSum(), sumaEUR: $ctrl.getEURSum(), sumaUSD: $ctrl.getUSDSum()},
+                    sumeTot: {sumaRON: $ctrl.getRONSum(), sumaEUR: $ctrl.getEURSum(), sumaUSD: $ctrl.getUSDSum()},
                     avans: {sumaRON: $ctrl.sumaRONavans, sumaEUR: $ctrl.sumaEURavans, sumaUSD: $ctrl.sumaUSDavans},
                     dateVirament: {
                         titularCont: $ctrl.titularCont,
@@ -232,8 +232,6 @@ angular.module('EasyDocsUBBApp')
                     }
                 };
                 AppService.createDRDoc(dispozitiaRectorului);
-                AppService.setActiveTab(2);
-                // console.log(AppService.getAllDR());
             }
         }
     });

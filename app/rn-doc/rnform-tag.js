@@ -9,11 +9,6 @@ angular.module('EasyDocsUBBApp')
 
             $ctrl.expenses = [];
 
-            // $ctrl.sumaCT;
-            // $ctrl.sumaCTAC;
-
-            // $ctrl.sumaT;
-
             $ctrl.handleForm = function () {
                 AppService.setActiveTab(2);
                 AppService.handleDAForm("D");
@@ -148,7 +143,6 @@ angular.module('EasyDocsUBBApp')
                     telG: $ctrl.telGestionar
                 };
 
-                AppService.setActiveTab(2);
                 AppService.createDADoc(referatNecesitate);
             };
 
