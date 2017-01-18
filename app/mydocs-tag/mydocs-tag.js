@@ -27,7 +27,11 @@ angular.module('EasyDocsUBBApp')
             };
 
             $ctrl.delete = function (currentDocId, curentDocVers, currentDocType) {
-
+                if (currentDocType === "Dispozitia rectorului")
+                    currentDocType = "DR";
+                else
+                    currentDocType = "RN";
+                AppService.delete({idDoc: currentDocId, verDoc: curentDocVers, docType: currentDocType});
             }
         }
     });

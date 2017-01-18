@@ -137,7 +137,7 @@ angular.module('EasyDocsUBBApp')
                     if (response.status == 200) {
                         var docItemsPromise = service.getAllDocs();
                         docItemsPromise.then(
-                            function(response) {
+                            function (response) {
                                 myDocs.userDocs = response;
                                 service.setActiveTab(2);
                             }
@@ -148,7 +148,7 @@ angular.module('EasyDocsUBBApp')
                 });
         };
 
-        service.getMyDocs = function() {
+        service.getMyDocs = function () {
             return myDocs.userDocs;
         };
 
@@ -159,7 +159,7 @@ angular.module('EasyDocsUBBApp')
                     if (response.status == 200) {
                         var docItemsPromise = service.getAllDocs();
                         docItemsPromise.then(
-                            function(response) {
+                            function (response) {
                                 myDocs.userDocs = response;
                                 service.setActiveTab(2);
                             }
@@ -177,7 +177,7 @@ angular.module('EasyDocsUBBApp')
                     if (response.status == 200) {
                         var docItemsPromise = service.getAllDocs();
                         docItemsPromise.then(
-                            function(response) {
+                            function (response) {
                                 myDocs.userDocs = response;
                                 service.setActiveTab(2);
                             }
@@ -194,7 +194,7 @@ angular.module('EasyDocsUBBApp')
                     if (response.status == 200) {
                         var docItemsPromise = service.getAllDocs();
                         docItemsPromise.then(
-                            function(response) {
+                            function (response) {
                                 myDocs.userDocs = response;
                             }
                         );
