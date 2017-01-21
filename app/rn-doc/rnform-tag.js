@@ -9,6 +9,43 @@ angular.module('EasyDocsUBBApp')
 
             $ctrl.expenses = [];
 
+            $ctrl.initialFormData = AppService.getInitialFormData("RN");
+
+            $ctrl.facultateDA = $ctrl.initialFormData.facultate;
+            $ctrl.departament = $ctrl.initialFormData.departament;
+            $ctrl.nrInreg = $ctrl.initialFormData.nrInreg;
+            $ctrl.nrInregDGA = $ctrl.initialFormData.nrInregDGA;
+            $ctrl.sumaVP = $ctrl.initialFormData.venitProprSolicitat;
+            $ctrl.sumaVPAC = $ctrl.initialFormData.venitProprAprobat;
+            $ctrl.DIFN = $ctrl.initialFormData.dateFN;
+            $ctrl.sumaDIFN = $ctrl.initialFormData.sumaFNSolicitat;
+            $ctrl.sumaDIFNAC = $ctrl.initialFormData.sumaFNAprobat;
+            $ctrl.DIFI = $ctrl.initialFormData.dateFI;
+            $ctrl.sumaDIFI = $ctrl.initialFormData.sumaFISolicitat;
+            $ctrl.sumaDIFIAC = $ctrl.initialFormData.sumaFIAprobat;
+            $ctrl.DICTA = $ctrl.initialFormData.DICTA;
+            $ctrl.sumaDICTA = $ctrl.initialFormData.sumaCTASolicitat;
+            $ctrl.sumaDICTAAC = $ctrl.initialFormData.sumaCTAAprobat;
+            $ctrl.sponsor = $ctrl.initialFormData.denSponsor;
+            $ctrl.sumaS = $ctrl.initialFormData.sumaSSolicitat;
+            $ctrl.sumaSAC = $ctrl.initialFormData.sumaSAprobat;
+            $ctrl.DIFS = $ctrl.initialFormData.dateFS;
+            $ctrl.sumaDIFS = $ctrl.initialFormData.sumaFSSolicitat;
+            $ctrl.sumaDIFSAC = $ctrl.initialFormData.sumaFSAprobat;
+            $ctrl.DIFE = $ctrl.initialFormData.dateFE;
+            $ctrl.sumaDIFE = $ctrl.initialFormData.sumaFESolicitat;
+            $ctrl.sumaDIFEAC = $ctrl.initialFormData.sumaFEAprobat;
+            $ctrl.DITA = $ctrl.initialFormData.dateTA;
+            $ctrl.sumaDITA = $ctrl.initialFormData.sumaTASolicitat;
+            $ctrl.sumaDITAAC = $ctrl.initialFormData.sumaTAAprobat;
+            $ctrl.expenses = $ctrl.initialFormData.cheltuieli;
+            $ctrl.numeSolicitant = $ctrl.initialFormData.numeSol;
+            $ctrl.emailSolicitant = $ctrl.initialFormData.emailSol;
+            $ctrl.telSolicitant = $ctrl.initialFormData.telSol;
+            $ctrl.numeGestionar = $ctrl.initialFormData.numeG;
+            $ctrl.emailGestionar = $ctrl.initialFormData.emailG;
+            $ctrl.telGestionar = $ctrl.initialFormData.telG;
+
             $ctrl.handleForm = function () {
                 AppService.setActiveTab(2);
                 AppService.handleDAForm("D");

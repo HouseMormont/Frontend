@@ -213,14 +213,16 @@ angular.module('EasyDocsUBBApp')
             Restangular.one('').post('getDocumentById', document)
                 .then(function (response) {
                     if (response.status == 200) {
-                        var docItemsPromise = service.getAllDocs();
-                        docItemsPromise.then(
-                            function (response) {
-                                docToEdit.doc = response;
-                                docToEdit.docType = document.docType;
-                                service.setActiveTab(2);
-                            }
-                        );
+                        docToEdit.doc = response.data.documentJson;
+                        docToEdit.docType = document.docType;
+                        if(docToEdit.docType == "DR") {
+                            service.setActiveTab(0);
+                            service.handleDRForm();
+                        }
+                        else {
+                            service.setActiveTab(1);
+                            service.handleDAForm();
+                        }
                     }
                 })
                 .catch(function () {
