@@ -171,11 +171,11 @@ angular.module('EasyDocsUBBApp')
         };
 
         service.makeFinal = function (document) {
-            service.setActiveTab(-1);
             Restangular.one('').post('finalizare', document)
                 .then(function (response) {
                     if (response.status == 200) {
                         var docItemsPromise = service.getAllDocs();
+                        service.setActiveTab(-1);
                         docItemsPromise.then(
                             function (response) {
                                 myDocs.userDocs = response;
@@ -191,11 +191,13 @@ angular.module('EasyDocsUBBApp')
         service.delete = function (document) {
             Restangular.one('').post('delete', document)
                 .then(function (response) {
+                    service.setActiveTab(-1);
                     if (response.status == 200) {
                         var docItemsPromise = service.getAllDocs();
                         docItemsPromise.then(
                             function (response) {
                                 myDocs.userDocs = response;
+                                service.setActiveTab(2);
                             }
                         );
                     }
