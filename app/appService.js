@@ -19,6 +19,7 @@ angular.module('EasyDocsUBBApp')
         var isDAFormActive = {active: false};//Formular dispozitia rectorului activ
         var activeTab = {index: 2};
         var myDocs = {userDocs: undefined};
+        var docToEdit = {doc: undefined, docType: undefined};
 
         service.getAllDocs = function () {
             return (Restangular.one('').post('getAllDocuments')
@@ -138,6 +139,7 @@ angular.module('EasyDocsUBBApp')
                         var docItemsPromise = service.getAllDocs();
                         docItemsPromise.then(
                             function (response) {
+                                service.clearInitialFormData();
                                 myDocs.userDocs = response;
                                 service.setActiveTab(2);
                             }
@@ -161,6 +163,7 @@ angular.module('EasyDocsUBBApp')
                         docItemsPromise.then(
                             function (response) {
                                 myDocs.userDocs = response;
+                                service.clearInitialFormData();
                                 service.setActiveTab(2);
                             }
                         );
@@ -204,5 +207,33 @@ angular.module('EasyDocsUBBApp')
                 })
                 .catch(function () {
                 });
+        };
+
+        service.editDoc = function (document) {
+            Restangular.one('').post('getDocumentById', document)
+                .then(function (response) {
+                    if (response.status == 200) {
+                        var docItemsPromise = service.getAllDocs();
+                        docItemsPromise.then(
+                            function (response) {
+                                docToEdit.doc = response;
+                                docToEdit.docType = document.docType;
+                                service.setActiveTab(2);
+                            }
+                        );
+                    }
+                })
+                .catch(function () {
+                });
+        };
+
+        service.getInitialFormData = function (docType) {
+            if (docToEdit.docType === docType)
+                return docToEdit;
+        };
+
+        service.clearInitialFormData = function () {
+            docToEdit.doc = undefined;
+            docToEdit.docType = undefined;
         };
     });

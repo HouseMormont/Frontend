@@ -30,7 +30,7 @@
             {{item.data}}
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 center">
-            <button class="btn btn-default mormontButton">Editeaza</button>
+            <button class="btn btn-default mormontButton"ng-click="$ctrl.editMyDoc(item.id, item.versiune, item.tipDocumet)">Editeaza</button>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 center">
             <button class="btn btn-default mormontButton" ng-click="$ctrl.delete(item.id, item.versiune, item.tipDocumet)">Sterge</button>

@@ -26,12 +26,21 @@ angular.module('EasyDocsUBBApp')
                 AppService.makeFinal({idDoc: currentDocId, verDoc: curentDocVers, docType: currentDocType});
             };
 
-            $ctrl.delete = function (currentDocId, curentDocVers, currentDocType) {
+            $ctrl.delete = function (currentDocId, currentDocVers, currentDocType) {
                 if (currentDocType === "Dispozitia rectorului")
                     currentDocType = "DR";
                 else
                     currentDocType = "RN";
-                AppService.delete({idDoc: currentDocId, verDoc: curentDocVers, docType: currentDocType});
-            }
+                AppService.delete({idDoc: currentDocId, verDoc: currentDocVers, docType: currentDocType});
+            };
+
+            $ctrl.editMyDoc = function(currentDocId, currentDocVers, currentDocType) {
+                if (currentDocType === "Dispozitia rectorului")
+                    currentDocType = "DR";
+                else
+                    currentDocType = "RN";
+                AppService.editDoc({idDoc: currentDocId, verDoc: currentDocVers, docType: currentDocType});
+            };
+
         }
     });
