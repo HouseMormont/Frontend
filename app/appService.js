@@ -41,6 +41,10 @@ angular.module('EasyDocsUBBApp')
             });
         };
 
+        service.getUserType = function() {
+            return loggedInUser.userType;
+        };
+
         service.isUserLoggedIn = function () {
             return Restangular.one('/check_login').get()
                 .then(function (response) {
@@ -142,7 +146,7 @@ angular.module('EasyDocsUBBApp')
                     if (response.status == 200) {
                         loggedInUser.userName = u;
                         loggedInUser.userAuthority = response.data.Authorities[0];
-                        // loggedInUser.userType = response.data.Typer[0];
+                        loggedInUser.userType = response.data.UserType;
                         loggedInUser.isLoggedIn = true;
                         $location.path("/main-layout");
                     }
@@ -493,5 +497,13 @@ angular.module('EasyDocsUBBApp')
                 })
                 .catch(function () {
                 });
+        };
+
+        service.isEditable = function(input) {
+            var stringInput = "" + input;
+            if(stringInput.indexOf('.') > -1)
+                return false;
+            else
+                return true;
         };
     });

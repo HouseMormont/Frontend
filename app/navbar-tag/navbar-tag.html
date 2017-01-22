@@ -17,10 +17,7 @@
         <li class="nav-item mormontNav" ng-click="$ctrl.setActiveTab(3)"  ng-class="{'active':$ctrl.getActiveTab() == 3}">
             <a>Documente in flux</a>
         </li>
-        <li class="nav-item mormontNav" ng-click="$ctrl.setActiveTab(4)"  ng-class="{'active':$ctrl.getActiveTab() == 4}">
-            <a>Log documente</a>
-        </li>
-        <li class="nav-item mormontNav" ng-click="$ctrl.setActiveTab(5)"  ng-class="{'active':$ctrl.getActiveTab() == 5}">
+        <li class="nav-item mormontNav" ng-click="$ctrl.setActiveTab(5)"  ng-class="{'active':$ctrl.getActiveTab() == 5}" ng-show="$ctrl.showAdminUsersTab()">
             <a>Administrare utilizatori si fluxuri</a>
         </li>
     </ul>

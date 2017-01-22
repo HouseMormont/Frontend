@@ -7,6 +7,10 @@ angular.module('EasyDocsUBBApp')
         controller: function (AppService) {
             $ctrl = this;
 
+            $ctrl.showAdminUsersTab = function(){
+                return (AppService.getUserType() === 1);
+            };
+
             $ctrl.toggleSideBar = function () {
                 return AppService.getSideBarState();
             };
