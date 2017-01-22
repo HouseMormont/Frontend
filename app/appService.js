@@ -20,6 +20,8 @@ angular.module('EasyDocsUBBApp')
         var activeTab = {index: 2};
         var myDocs = {userDocs: undefined};
         var docToEdit = {doc: undefined, docType: undefined, verDoc: undefined, idDoc: undefined};
+        var users = {allUsers: undefined};
+        var docsToProcess = {allDocs: undefined};
 
         service.getAllDocs = function () {
             return (Restangular.one('').post('getAllDocuments')
@@ -140,6 +142,7 @@ angular.module('EasyDocsUBBApp')
          Does a POST and creates a subElement. Subelement is mandatory and is the nested resource. Element to post is the object to post to the server*/
         service.createDRDoc = function (document) {
             service.handleDRForm();
+            console.log(docToEdit.verDoc);
             if (docToEdit.docType === "DR") {
                 Restangular.one('').post('dispozitiaRectorului/save/', {
                     jsonDoc: document,
@@ -268,7 +271,7 @@ angular.module('EasyDocsUBBApp')
                     if (response.status == 200) {
                         docToEdit.doc = response.data.documentJson;
                         docToEdit.docType = document.docType;
-                        docToEdit.versionDoc = response.data.versiune;
+                        docToEdit.verDoc = response.data.versiune;
                         docToEdit.idDoc = response.data.id_dispozitie;
                         if (docToEdit.docType == "DR") {
                             service.setActiveTab(0);
@@ -292,7 +295,46 @@ angular.module('EasyDocsUBBApp')
         service.clearInitialFormData = function () {
             docToEdit.doc = undefined;
             docToEdit.docType = undefined;
-            docToEdit.versionDoc = undefined;
+            docToEdit.verDoc = undefined;
             docToEdit.idDoc = undefined;
         };
+
+        service.getAllUsers = function () {
+            return (Restangular.one('').post('getAllUsers')
+                .then(function (response) {
+                    if (response.status == 200) {
+                        return response.data;
+                    }
+                })
+                .catch(function () {
+                    return false;
+                })).then(function (result) {
+                users.allUsers = result.slice(0, result.length);
+                return result.slice(0, result.length);
+            });
+        };
+
+        service.getUsersForDisplay = function () {
+            return users.allUsers;
+        };
+
+        service.getDocsToReview = function() {
+            return (Restangular.one('').post('getDocumentsToReview')
+                .then(function (response) {
+                    if (response.status == 200) {
+                        return response.data;
+                    }
+                })
+                .catch(function () {
+                    return false;
+                })).then(function (result) {
+                docsToProcess.allDocs = result.slice(0, result.length);
+                return result.slice(0, result.length);
+            });
+        };
+
+        service.getDocsToProcessForDisplay = function () {
+            return docsToProcess.allDocs;
+        };
+
     });

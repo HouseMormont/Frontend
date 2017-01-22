@@ -16,27 +16,23 @@
             Operatii utilizator
         </div>
     </div>
-    <div ng-repeat="item in $ctrl.docItems" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 doc">
+    <div ng-repeat="item in $ctrl.userItems" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 doc">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
             {{item.id}}
         </div>
-        <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 center">
-            {{item.tipDocumet}}
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 center">
+            {{item.username}}
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
-            {{item.versiune}}
+            {{item.calitate}}
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
-            {{item.data}}
+            {{item.autoritate}}
         </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 center">
-            <button class="btn btn-default mormontButton"ng-click="$ctrl.editMyDoc(item.id, item.versiune, item.tipDocumet)">Editeaza</button>
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 center">
+
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 center">
             <button class="btn btn-default mormontButton" ng-click="$ctrl.delete(item.id, item.versiune, item.tipDocumet)">Sterge</button>
         </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 center">
-            <button class="btn btn-default mormontButton" ng-click="$ctrl.makeFinal(item.id, item.versiune, item.tipDocumet)" ng-disabled="item.versiune >= 1">Finalizare</button>
-        </div>
+
     </div>
 </div>

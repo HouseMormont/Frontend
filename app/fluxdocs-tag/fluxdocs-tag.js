@@ -7,7 +7,16 @@ angular.module('EasyDocsUBBApp')
         controller: function (AppService) {
             $ctrl = this;
 
-            $ctrl.docItems = [{id:"1", docName:"nume1", authorName:"nume autor1"}, {id:"2", docName:"nume2", authorName:"nume autor2"}];
+            $ctrl.docsProcess = AppService.getDocsToProcessForDisplay();
 
+            if ($ctrl.docsProcess === undefined) {
+                $ctrl.docsProcess = [];
+                var docItemsPromise = AppService.getDocsToReview();
+                docItemsPromise.then(
+                    function (response) {
+                        $ctrl.docsProcess = response;
+                    }
+                );
+            }
         }
     });
