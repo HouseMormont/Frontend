@@ -1,0 +1,71 @@
+.users {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.users .center {
+    display: inline-block;
+    float: none;
+    text-align: center;
+    padding: 3px;
+}
+
+.users .doc {
+    margin: 5px 0 0;
+    padding: 0;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    vertical-align: middle;
+    border: 2px solid #69A31B;
+    border-radius: 10px;
+
+}
+
+.users .form-title {
+    color: #69A31B;
+    font-size: large;
+    text-decoration: underline;
+}
+
+.users .sub-title {
+    text-decoration: underline;
+}
+
+.users .chenar {
+    border: 1px solid #69A31B;
+    border-radius: 8px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.users > .form-group {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.users .nested, .nested > div {
+    padding-right: 0;
+}
+
+.users > .rightPaddingInput, .nested {
+    padding-right: 0;
+}
+
+.users .centered-vertically {
+    justify-content: center;
+    vertical-align: middle;
+    align-content: center;
+    display: inline-block;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.users .bottomPadding {
+    padding-bottom: 10px;
+}
+
+#whiteText {
+    color: white;
+}

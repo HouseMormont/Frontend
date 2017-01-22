@@ -1,4 +1,4 @@
-<div class="myDocs">
+<div class="users">
     <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 doc">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
             Id utilizator
@@ -7,10 +7,10 @@
             Nume utilizator
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
-            Calitate utilizator
+            Categorie de finantare
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
-            Autoritate utilizator
+            Functie utilizator
         </div>
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 center">
             Operatii utilizator
@@ -29,10 +29,68 @@
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
             {{item.autoritate}}
         </div>
-
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 center">
-            <button class="btn btn-default mormontButton" ng-click="$ctrl.delete(item.id, item.versiune, item.tipDocumet)">Sterge</button>
+            <button class="btn btn-default mormontButton"
+                    ng-click="$ctrl.deleteUser(item.username)">Sterge
+            </button>
         </div>
+    </div>
+    <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12 doc bottomPadding">
+        <div class="nested col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 row sub-title">
+                <label>Formular creare utilizator</label>
+            </div>
 
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label for="inputUsername">Alias</label>
+                    <input type="text" class="form-control mormontInput" id="inputUsername"
+                           ng-model="$ctrl.username" placeholder="Alias...">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label for="inputPasword">Parola</label>
+                    <input type="text" class="form-control mormontInput" id="inputPasword"
+                           ng-model="$ctrl.password" placeholder="Parola...">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label for="inputFirstname">Nume</label>
+                    <input type="text" class="form-control mormontInput" id="inputFirstname"
+                           ng-model="$ctrl.firstname" placeholder="Nume...">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label for="inputLastname">Prenume</label>
+                    <input type="text" class="form-control mormontInput" id="inputLastname"
+                           ng-model="$ctrl.lastname" placeholder="Prenume...">
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 centered-vertically">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label for="inputAuthority">Functie</label>
+                    <select class="form-control mormontInput" id="inputAuthority"
+                            ng-model="$ctrl.authority">
+                        <option ng-repeat="option in $ctrl.uA" ng-value="option.id">{{option.descriere}}</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label for="inputType">Rol in sistem</label>
+                    <select class="form-control mormontInput" id="inputType"
+                            ng-model="$ctrl.type">
+                        <option ng-repeat="option in $ctrl.uT" ng-value="option.id">{{option.denumire}}</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label for="inputFunc">Categorie de finantare</label>
+                    <select class="form-control mormontInput" id="inputFunc"
+                            ng-model="$ctrl.function">
+                        <option ng-repeat="option in $ctrl.uF" ng-value="option.id">{{option.descriere}}</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label id="whiteText">Categorie de finantare</label>
+                    <button class="btn btn-default submit mormontButton" ng-click="$ctrl.createUser()">Creeaza user</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

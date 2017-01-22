@@ -24,6 +24,7 @@ angular.module('EasyDocsUBBApp')
         var docToEdit = {doc: undefined, docType: undefined, verDoc: undefined, idDoc: undefined};
         var users = {allUsers: undefined};
         var docsToProcess = {allDocs: undefined};
+        var userCharacteristics = {types: undefined, authorities: undefined, functions: undefined};
 
         service.getAllDocs = function () {
             return (Restangular.one('').post('getAllDocuments')
@@ -112,10 +113,21 @@ angular.module('EasyDocsUBBApp')
             Restangular.one('/invalidate').post('')
                 .then(function (response) {
                     if (response.status == 200) {
-                        loggedInUser.userName = undefined;
-                        loggedInUser.userRole = undefined;
-                        loggedInUser.isLoggedIn = false;
-                        $templateCache.removeAll();
+                        loggedInUser = {
+                            userName: undefined,
+                            userType: undefined,
+                            userAuthority: undefined,
+                            isLoggedIn: false
+                        };
+                        isSideBarActive = {active: false}; //sidebar active
+                        isDRFormActive = {active: false};//Formular dispozitia rectorului activ
+                        isDAFormActive = {active: false};//Formular dispozitia rectorului activ
+                        activeTab = {index: 2};
+                        myDocs = {userDocs: undefined};
+                        docToEdit = {doc: undefined, docType: undefined, verDoc: undefined, idDoc: undefined};
+                        users = {allUsers: undefined};
+                        docsToProcess = {allDocs: undefined};
+                        userCharacteristics = {types: undefined, authorities: undefined, functions: undefined};
                         $location.path("/");
                     }
                 })
@@ -337,7 +349,7 @@ angular.module('EasyDocsUBBApp')
             return docsToProcess.allDocs;
         };
 
-        service.approveDoc = function(requestParams) {
+        service.approveDoc = function (requestParams) {
             Restangular.one('').post('approveDoc', requestParams)
                 .then(function (response) {
                     service.setActiveTab(-1);
@@ -355,7 +367,7 @@ angular.module('EasyDocsUBBApp')
                 });
         };
 
-        service.rejectDoc = function(requestParams) {
+        service.rejectDoc = function (requestParams) {
             Restangular.one('').post('rejectDoc', requestParams)
                 .then(function (response) {
                     service.setActiveTab(-1);
@@ -373,7 +385,7 @@ angular.module('EasyDocsUBBApp')
                 });
         };
 
-        service.reviseDoc = function(requestParams) {
+        service.reviseDoc = function (requestParams) {
             Restangular.one('').post('reviseDoc', requestParams)
                 .then(function (response) {
                     service.setActiveTab(-1);
@@ -383,6 +395,98 @@ angular.module('EasyDocsUBBApp')
                             function (response) {
                                 myDocs.userDocs = response;
                                 service.setActiveTab(3);
+                            }
+                        );
+                    }
+                })
+                .catch(function () {
+                });
+        };
+
+        service.getUserTypes = function () {
+            return (Restangular.one('').post('getTypes')
+                .then(function (response) {
+                    if (response.status == 200) {
+                        return response.data;
+                    }
+                })
+                .catch(function () {
+                })).then(function (result) {
+                docsToProcess.allDocs = result.slice(0, result.length);
+                return result.slice(0, result.length);
+            });
+        };
+
+        service.getUserAuthorities = function () {
+            return (Restangular.one('').post('getAuthorities')
+                .then(function (response) {
+                    if (response.status == 200) {
+                        return response.data;
+                    }
+                })
+                .catch(function () {
+                })).then(function (result) {
+                docsToProcess.allDocs = result.slice(0, result.length);
+                return result.slice(0, result.length);
+            });
+        };
+
+        service.getUserFunctions = function () {
+            return (Restangular.one('').post('getFunctions')
+                .then(function (response) {
+                    if (response.status == 200) {
+                        return response.data;
+                    }
+                })
+                .catch(function () {
+                })).then(function (result) {
+                docsToProcess.allDocs = result.slice(0, result.length);
+                return result.slice(0, result.length);
+            });
+        };
+
+        service.getUT = function(){
+            return userCharacteristics.types;
+        };
+
+        service.getUA = function(){
+            return userCharacteristics.authorities;
+        };
+
+        service.getUF = function(){
+            return userCharacteristics.authorities;
+        };
+
+        service.createUser = function (userDetails)
+        {
+            Restangular.one('').post('createUser', userDetails)
+                .then(function (response) {
+                    service.setActiveTab(-1);
+                    if (response.status == 200) {
+                        var docItemsPromise = service.getAllUsers();
+                        docItemsPromise.then(
+                            function (response) {
+                                users.allUsers = response;
+                                service.setActiveTab(5);
+                            }
+                        );
+                    }
+                })
+                .catch(function () {
+                });
+        };
+
+        service.deleteUser = function (userDetails)
+        {
+            Restangular.one('').post('deleteUser', userDetails)
+                .then(function (response) {
+                    service.setActiveTab(-1);
+                    if (response.status == 200) {
+                        var docItemsPromise = service.getAllUsers();
+                        docItemsPromise.then(
+                            function (response) {
+                                users.allUsers = response;
+                                service.setActiveTab(5);
                             }
                         );
                     }
