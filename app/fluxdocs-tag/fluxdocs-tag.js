@@ -26,5 +26,21 @@ angular.module('EasyDocsUBBApp')
                     currentDocType = "RN";
                 AppService.approveDoc({idDoc: currentDocId, versionDoc: curentDocVers, docType: currentDocType});
             };
+
+            $ctrl.rejectDoc = function (currentDocId, curentDocVers, currentDocType) {
+                if (currentDocType === "Dispozitia rectorului")
+                    currentDocType = "DR";
+                else
+                    currentDocType = "RN";
+                AppService.rejectDoc({idDoc: currentDocId, versionDoc: curentDocVers, docType: currentDocType});
+            };
+
+            $ctrl.reviseDoc = function (currentDocId, curentDocVers, currentDocType) {
+                if (currentDocType === "Dispozitia rectorului")
+                    currentDocType = "DR";
+                else
+                    currentDocType = "RN";
+                AppService.reviseDoc({idDoc: currentDocId, versionDoc: curentDocVers, docType: currentDocType});
+            };
         }
     });

@@ -29,17 +29,11 @@
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 center">
             {{item.authorName}}
         </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 center">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 center">
             <button class="btn btn-default mormontButton">Vizualizeaza</button>
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 center">
             <button class="btn btn-default mormontButton" ng-click="$ctrl.approveDoc(item.id, item.versiune, item.tipDocumet)">Aproba</button>
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 center">
-            <button class="btn btn-default mormontButton">Respinge</button>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 center">
-            <button class="btn btn-default mormontButton">Trimite spre revizuire</button>
+            <button class="btn btn-default mormontButton" ng-click="$ctrl.rejectDoc(item.id, item.versiune, item.tipDocumet)">Respinge</button>
+            <button class="btn btn-default mormontButton" ng-click="$ctrl.reviseDoc(item.id, item.versiune, item.tipDocumet)">Trimite spre revizuire</button>
         </div>
     </div>
 </div>

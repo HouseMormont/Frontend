@@ -372,4 +372,22 @@ angular.module('EasyDocsUBBApp')
                 .catch(function () {
                 });
         };
+
+        service.reviseDoc = function(requestParams) {
+            Restangular.one('').post('reviseDoc', requestParams)
+                .then(function (response) {
+                    service.setActiveTab(-1);
+                    if (response.status == 200) {
+                        var docItemsPromise = service.getDocsToReview();
+                        docItemsPromise.then(
+                            function (response) {
+                                myDocs.userDocs = response;
+                                service.setActiveTab(3);
+                            }
+                        );
+                    }
+                })
+                .catch(function () {
+                });
+        };
     });
