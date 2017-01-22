@@ -10,7 +10,7 @@ angular.module('EasyDocsUBBApp')
             $ctrl.$onChanges = function () {
                 $ctrl.initialFormData = AppService.getInitialFormData("RN");
 
-                $ctrl.facultateDA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.facultateDA : undefined;
+                $ctrl.facultateDA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.facultate : undefined;
                 $ctrl.departament = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.departament : undefined;
                 $ctrl.nrInreg = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.nrInreg : undefined;
                 $ctrl.nrInregDGA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.nrInregDGA : undefined;

@@ -5,13 +5,15 @@ angular.module('EasyDocsUBBApp')
     .service('AppService', function (Restangular, $base64, $location, $templateCache) {
         // Restangular.setBaseUrl('http://172.30.117.30:8080');
         Restangular.setBaseUrl('http://localhost:8080');
+        // Restangular.setBaseUrl('https://localhost:8443');
 
         Restangular.setDefaultHttpFields({withCredentials: true});
         Restangular.setFullResponse(true);
         var service = this;
         var loggedInUser = {
             userName: undefined,
-            userRole: undefined,
+            userType: undefined,
+            userAuthority: undefined,
             isLoggedIn: false
         };
         var isSideBarActive = {active: false}; //sidebar active
@@ -107,7 +109,6 @@ angular.module('EasyDocsUBBApp')
         };
 
         service.logoutUser = function () {
-            // alert("Logout called!");
             Restangular.one('/invalidate').post('')
                 .then(function (response) {
                     if (response.status == 200) {
@@ -128,7 +129,8 @@ angular.module('EasyDocsUBBApp')
                 .then(function (response) {
                     if (response.status == 200) {
                         loggedInUser.userName = u;
-                        loggedInUser.userRole = response.data.Authorities[0];
+                        loggedInUser.userAuthority = response.data.Authorities[0];
+                        // loggedInUser.userType = response.data.Typer[0];
                         loggedInUser.isLoggedIn = true;
                         $location.path("/main-layout");
                     }
@@ -194,21 +196,19 @@ angular.module('EasyDocsUBBApp')
                     jsonDoc: document,
                     idDoc: docToEdit.idDoc,
                     versionDoc: docToEdit.verDoc
-                })
-                    .then(function (response) {
-                        if (response.status == 200) {
-                            var docItemsPromise = service.getAllDocs();
-                            docItemsPromise.then(
-                                function (response) {
-                                    service.clearInitialFormData();
-                                    myDocs.userDocs = response;
-                                    service.setActiveTab(2);
-                                }
-                            );
-                        }
-                    })
-                    .catch(function () {
-                    });
+                }).then(function (response) {
+                    if (response.status == 200) {
+                        var docItemsPromise = service.getAllDocs();
+                        docItemsPromise.then(
+                            function (response) {
+                                service.clearInitialFormData();
+                                myDocs.userDocs = response;
+                                service.setActiveTab(2);
+                            }
+                        );
+                    }
+                }).catch(function () {
+                });
             }
             else {
                 Restangular.one('').post('referatNecesitate/create/', {jsonDoc: document})
@@ -318,7 +318,7 @@ angular.module('EasyDocsUBBApp')
             return users.allUsers;
         };
 
-        service.getDocsToReview = function() {
+        service.getDocsToReview = function () {
             return (Restangular.one('').post('getDocumentsToReview')
                 .then(function (response) {
                     if (response.status == 200) {
@@ -337,4 +337,39 @@ angular.module('EasyDocsUBBApp')
             return docsToProcess.allDocs;
         };
 
+        service.approveDoc = function(requestParams) {
+            Restangular.one('').post('approveDoc', requestParams)
+                .then(function (response) {
+                    service.setActiveTab(-1);
+                    if (response.status == 200) {
+                        var docItemsPromise = service.getDocsToReview();
+                        docItemsPromise.then(
+                            function (response) {
+                                myDocs.userDocs = response;
+                                service.setActiveTab(3);
+                            }
+                        );
+                    }
+                })
+                .catch(function () {
+                });
+        };
+
+        service.rejectDoc = function(requestParams) {
+            Restangular.one('').post('rejectDoc', requestParams)
+                .then(function (response) {
+                    service.setActiveTab(-1);
+                    if (response.status == 200) {
+                        var docItemsPromise = service.getDocsToReview();
+                        docItemsPromise.then(
+                            function (response) {
+                                myDocs.userDocs = response;
+                                service.setActiveTab(3);
+                            }
+                        );
+                    }
+                })
+                .catch(function () {
+                });
+        };
     });

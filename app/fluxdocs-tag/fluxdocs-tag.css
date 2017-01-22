@@ -1,13 +1,20 @@
+.fluxDocs {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
 .fluxDocs .doc {
     margin: 5px 0 0;
     padding: 0;
+    text-align: center;
     align-content: center;
     align-items: center;
     vertical-align: middle;
     border: 2px solid #69A31B;
     border-radius: 10px;
-
 }
+
 
 .fluxDocs .center {
     display: inline-block;
@@ -15,6 +22,7 @@
     text-align: center;
     padding: 3px;
 }
+
 
 .fluxDocs > .mormontButton {
     width: 100%;

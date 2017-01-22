@@ -18,5 +18,13 @@ angular.module('EasyDocsUBBApp')
                     }
                 );
             }
+
+            $ctrl.approveDoc = function (currentDocId, curentDocVers, currentDocType) {
+                if (currentDocType === "Dispozitia rectorului")
+                    currentDocType = "DR";
+                else
+                    currentDocType = "RN";
+                AppService.approveDoc({idDoc: currentDocId, versionDoc: curentDocVers, docType: currentDocType});
+            };
         }
     });
