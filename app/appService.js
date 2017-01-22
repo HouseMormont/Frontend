@@ -2,7 +2,7 @@
  * Created by Lucian Bredean on 11/15/2016.
  */
 angular.module('EasyDocsUBBApp')
-    .service('AppService', function (Restangular, $base64, $location) {
+    .service('AppService', function (Restangular, $base64, $location, $templateCache) {
         // Restangular.setBaseUrl('http://172.30.117.30:8080');
         Restangular.setBaseUrl('http://localhost:8080');
 
@@ -19,7 +19,7 @@ angular.module('EasyDocsUBBApp')
         var isDAFormActive = {active: false};//Formular dispozitia rectorului activ
         var activeTab = {index: 2};
         var myDocs = {userDocs: undefined};
-        var docToEdit = {doc: undefined, docType: undefined};
+        var docToEdit = {doc: undefined, docType: undefined, verDoc: undefined, idDoc: undefined};
 
         service.getAllDocs = function () {
             return (Restangular.one('').post('getAllDocuments')
@@ -37,9 +37,8 @@ angular.module('EasyDocsUBBApp')
         };
 
         service.isUserLoggedIn = function () {
-            Restangular.one('/check_login').get()
+            return Restangular.one('/check_login').get()
                 .then(function (response) {
-                    console.log("test login:" + response);
                     if (response.status == 200) {
                         return true;
                     }
@@ -106,12 +105,20 @@ angular.module('EasyDocsUBBApp')
         };
 
         service.logoutUser = function () {
-            alert("Logout called!");
-            //TODO: Call logout to server
-            loggedInUser.userName = undefined;
-            loggedInUser.userRole = undefined;
-            loggedInUser.isLoggedIn = false;
-            $location.path("/");
+            // alert("Logout called!");
+            Restangular.one('/invalidate').post('')
+                .then(function (response) {
+                    if (response.status == 200) {
+                        loggedInUser.userName = undefined;
+                        loggedInUser.userRole = undefined;
+                        loggedInUser.isLoggedIn = false;
+                        $templateCache.removeAll();
+                        $location.path("/");
+                    }
+                })
+                .catch(function () {
+                    // $location.path("/");
+                });
         };
 
         service.loginRequest = function (u, p) {
@@ -133,21 +140,44 @@ angular.module('EasyDocsUBBApp')
          Does a POST and creates a subElement. Subelement is mandatory and is the nested resource. Element to post is the object to post to the server*/
         service.createDRDoc = function (document) {
             service.handleDRForm();
-            Restangular.one('').post('dispozitiaRectorului/create/', {jsonDoc: document})
-                .then(function (response) {
-                    if (response.status == 200) {
-                        var docItemsPromise = service.getAllDocs();
-                        docItemsPromise.then(
-                            function (response) {
-                                service.clearInitialFormData();
-                                myDocs.userDocs = response;
-                                service.setActiveTab(2);
-                            }
-                        );
-                    }
+            if (docToEdit.docType === "DR") {
+                Restangular.one('').post('dispozitiaRectorului/save/', {
+                    jsonDoc: document,
+                    idDoc: docToEdit.idDoc,
+                    versionDoc: docToEdit.verDoc
                 })
-                .catch(function () {
-                });
+                    .then(function (response) {
+                        if (response.status == 200) {
+                            var docItemsPromise = service.getAllDocs();
+                            docItemsPromise.then(
+                                function (response) {
+                                    service.clearInitialFormData();
+                                    myDocs.userDocs = response;
+                                    service.setActiveTab(2);
+                                }
+                            );
+                        }
+                    })
+                    .catch(function () {
+                    });
+            }
+            else {
+                Restangular.one('').post('dispozitiaRectorului/create/', {jsonDoc: document})
+                    .then(function (response) {
+                        if (response.status == 200) {
+                            var docItemsPromise = service.getAllDocs();
+                            docItemsPromise.then(
+                                function (response) {
+                                    service.clearInitialFormData();
+                                    myDocs.userDocs = response;
+                                    service.setActiveTab(2);
+                                }
+                            );
+                        }
+                    })
+                    .catch(function () {
+                    });
+            }
         };
 
         service.getMyDocs = function () {
@@ -156,21 +186,44 @@ angular.module('EasyDocsUBBApp')
 
         service.createDADoc = function (document) {
             service.handleDAForm();
-            Restangular.one('').post('referatNecesitate/create/', {jsonDoc: document})
-                .then(function (response) {
-                    if (response.status == 200) {
-                        var docItemsPromise = service.getAllDocs();
-                        docItemsPromise.then(
-                            function (response) {
-                                myDocs.userDocs = response;
-                                service.clearInitialFormData();
-                                service.setActiveTab(2);
-                            }
-                        );
-                    }
+            if (docToEdit.docType === "RN") {
+                Restangular.one('').post('referatNecesitate/save/', {
+                    jsonDoc: document,
+                    idDoc: docToEdit.idDoc,
+                    versionDoc: docToEdit.verDoc
                 })
-                .catch(function () {
-                });
+                    .then(function (response) {
+                        if (response.status == 200) {
+                            var docItemsPromise = service.getAllDocs();
+                            docItemsPromise.then(
+                                function (response) {
+                                    service.clearInitialFormData();
+                                    myDocs.userDocs = response;
+                                    service.setActiveTab(2);
+                                }
+                            );
+                        }
+                    })
+                    .catch(function () {
+                    });
+            }
+            else {
+                Restangular.one('').post('referatNecesitate/create/', {jsonDoc: document})
+                    .then(function (response) {
+                        if (response.status == 200) {
+                            var docItemsPromise = service.getAllDocs();
+                            docItemsPromise.then(
+                                function (response) {
+                                    myDocs.userDocs = response;
+                                    service.clearInitialFormData();
+                                    service.setActiveTab(2);
+                                }
+                            );
+                        }
+                    })
+                    .catch(function () {
+                    });
+            }
         };
 
         service.makeFinal = function (document) {
@@ -215,7 +268,9 @@ angular.module('EasyDocsUBBApp')
                     if (response.status == 200) {
                         docToEdit.doc = response.data.documentJson;
                         docToEdit.docType = document.docType;
-                        if(docToEdit.docType == "DR") {
+                        docToEdit.versionDoc = response.data.versiune;
+                        docToEdit.idDoc = response.data.id_dispozitie;
+                        if (docToEdit.docType == "DR") {
                             service.setActiveTab(0);
                             service.handleDRForm();
                         }
@@ -231,11 +286,13 @@ angular.module('EasyDocsUBBApp')
 
         service.getInitialFormData = function (docType) {
             if (docToEdit.docType === docType)
-                return docToEdit;
+                return docToEdit.doc;
         };
 
         service.clearInitialFormData = function () {
             docToEdit.doc = undefined;
             docToEdit.docType = undefined;
+            docToEdit.versionDoc = undefined;
+            docToEdit.idDoc = undefined;
         };
     });

@@ -7,48 +7,49 @@ angular.module('EasyDocsUBBApp')
         controller: function (AppService) {
             $ctrl = this;
 
-            $ctrl.expenses = [];
+            $ctrl.$onChanges = function () {
+                $ctrl.initialFormData = AppService.getInitialFormData("RN");
 
-            $ctrl.initialFormData = AppService.getInitialFormData("RN");
-
-            $ctrl.facultateDA = $ctrl.initialFormData.facultate;
-            $ctrl.departament = $ctrl.initialFormData.departament;
-            $ctrl.nrInreg = $ctrl.initialFormData.nrInreg;
-            $ctrl.nrInregDGA = $ctrl.initialFormData.nrInregDGA;
-            $ctrl.sumaVP = $ctrl.initialFormData.venitProprSolicitat;
-            $ctrl.sumaVPAC = $ctrl.initialFormData.venitProprAprobat;
-            $ctrl.DIFN = $ctrl.initialFormData.dateFN;
-            $ctrl.sumaDIFN = $ctrl.initialFormData.sumaFNSolicitat;
-            $ctrl.sumaDIFNAC = $ctrl.initialFormData.sumaFNAprobat;
-            $ctrl.DIFI = $ctrl.initialFormData.dateFI;
-            $ctrl.sumaDIFI = $ctrl.initialFormData.sumaFISolicitat;
-            $ctrl.sumaDIFIAC = $ctrl.initialFormData.sumaFIAprobat;
-            $ctrl.DICTA = $ctrl.initialFormData.DICTA;
-            $ctrl.sumaDICTA = $ctrl.initialFormData.sumaCTASolicitat;
-            $ctrl.sumaDICTAAC = $ctrl.initialFormData.sumaCTAAprobat;
-            $ctrl.sponsor = $ctrl.initialFormData.denSponsor;
-            $ctrl.sumaS = $ctrl.initialFormData.sumaSSolicitat;
-            $ctrl.sumaSAC = $ctrl.initialFormData.sumaSAprobat;
-            $ctrl.DIFS = $ctrl.initialFormData.dateFS;
-            $ctrl.sumaDIFS = $ctrl.initialFormData.sumaFSSolicitat;
-            $ctrl.sumaDIFSAC = $ctrl.initialFormData.sumaFSAprobat;
-            $ctrl.DIFE = $ctrl.initialFormData.dateFE;
-            $ctrl.sumaDIFE = $ctrl.initialFormData.sumaFESolicitat;
-            $ctrl.sumaDIFEAC = $ctrl.initialFormData.sumaFEAprobat;
-            $ctrl.DITA = $ctrl.initialFormData.dateTA;
-            $ctrl.sumaDITA = $ctrl.initialFormData.sumaTASolicitat;
-            $ctrl.sumaDITAAC = $ctrl.initialFormData.sumaTAAprobat;
-            $ctrl.expenses = $ctrl.initialFormData.cheltuieli;
-            $ctrl.numeSolicitant = $ctrl.initialFormData.numeSol;
-            $ctrl.emailSolicitant = $ctrl.initialFormData.emailSol;
-            $ctrl.telSolicitant = $ctrl.initialFormData.telSol;
-            $ctrl.numeGestionar = $ctrl.initialFormData.numeG;
-            $ctrl.emailGestionar = $ctrl.initialFormData.emailG;
-            $ctrl.telGestionar = $ctrl.initialFormData.telG;
+                $ctrl.facultateDA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.facultateDA : undefined;
+                $ctrl.departament = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.departament : undefined;
+                $ctrl.nrInreg = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.nrInreg : undefined;
+                $ctrl.nrInregDGA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.nrInregDGA : undefined;
+                $ctrl.sumaVP = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.venitProprSolicitat : undefined;
+                $ctrl.sumaVPAC = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.venitProprAprobat : undefined;
+                $ctrl.DIFN = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.dateFN : undefined;
+                $ctrl.sumaDIFN = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaFNSolicitat : undefined;
+                $ctrl.sumaDIFNAC = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaFNAprobat : undefined;
+                $ctrl.DIFI = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.dateFI : undefined;
+                $ctrl.sumaDIFI = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaFISolicitat : undefined;
+                $ctrl.sumaDIFIAC = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaFIAprobat : undefined;
+                $ctrl.DICTA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.DICTA : undefined;
+                $ctrl.sumaDICTA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaCTASolicitat : undefined;
+                $ctrl.sumaDICTAAC = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaCTAAprobat : undefined;
+                $ctrl.sponsor = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.denSponsor : undefined;
+                $ctrl.sumaS = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaSSolicitat : undefined;
+                $ctrl.sumaSAC = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaSAprobat : undefined;
+                $ctrl.DIFS = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.dateFS : undefined;
+                $ctrl.sumaDIFS = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaFSSolicitat : undefined;
+                $ctrl.sumaDIFSAC = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaFSAprobat : undefined;
+                $ctrl.DIFE = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.dateFE : undefined;
+                $ctrl.sumaDIFE = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaFESolicitat : undefined;
+                $ctrl.sumaDIFEAC = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaFEAprobat : undefined;
+                $ctrl.DITA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.dateTA : undefined;
+                $ctrl.sumaDITA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaTASolicitat : undefined;
+                $ctrl.sumaDITAAC = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.sumaTAAprobat : undefined;
+                $ctrl.expenses = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.cheltuieli : [];
+                $ctrl.numeSolicitant = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.numeSol : undefined;
+                $ctrl.emailSolicitant = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.emailSol : undefined;
+                $ctrl.telSolicitant = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.telSol : undefined;
+                $ctrl.numeGestionar = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.numeG : undefined;
+                $ctrl.emailGestionar = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.emailG : undefined;
+                $ctrl.telGestionar = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.telG : undefined;
+            };
 
             $ctrl.handleForm = function () {
                 AppService.setActiveTab(2);
                 AppService.handleDAForm("D");
+                AppService.clearInitialFormData();
             };
 
             $ctrl.getSumaCercetareSolicitata = function () {
@@ -124,6 +125,9 @@ angular.module('EasyDocsUBBApp')
             };
 
             $ctrl.addReccord = function () {
+                if ($ctrl.expenses === undefined) {
+                    $ctrl.expenses = [];
+                }
                 $ctrl.expenses.push({
                     nrCrt: $ctrl.expenses.length + 1,
                     artName: $ctrl.newRprodName,

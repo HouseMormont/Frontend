@@ -17,8 +17,13 @@ angular.module('EasyDocsUBBApp', ['ngRoute', 'restangular', 'base64', 'ui.bootst
     .run(function ($rootScope, AppService, $location) {
         if (!($location.path() === "/")) {
             $rootScope.$on("$routeChangeStart", function () {
-                if (AppService.isUserLoggedIn() == false)
+                AppService.isUserLoggedIn().then(function(response) {
+                    if (response != true) {
+                        $location.path("/");
+                    }
+                }).catch(function () {
                     $location.path("/");
+                });
             });
         }
     });

@@ -7,127 +7,131 @@ angular.module('EasyDocsUBBApp')
         controller: function (AppService) {
             var $ctrl = this;
 
-            $ctrl.initialFormData = AppService.getInitialFormData("DR");
-            $ctrl.functie = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.functie : undefined;
-            $ctrl.facultate = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.facultate : undefined;
-            // $ctrl.destinatie = $ctrl.initialFormData.destinatie;
-            // $ctrl.ruta = $ctrl.initialFormData.ruta;
-            // $ctrl.dataStart = $ctrl.initialFormData.dataInceputEveniment;
-            // $ctrl.dataFinal = $ctrl.initialFormData.dataFinalEveniment;
-            // $ctrl.dataPlecare = $ctrl.initialFormData.dataPlecare;
-            // $ctrl.dataPlecare = $ctrl.initialFormData.dataSosire;
-            //
-            // $ctrl.autoT = $ctrl.initialFormData.mijlocTransport.auto;
-            // $ctrl.autoTP = $ctrl.initialFormData.mijlocTransport.autoPersonal;
-            // $ctrl.autoTUBB = $ctrl.initialFormData.mijlocTransport.autoUBB;
-            // $ctrl.trenT = $ctrl.initialFormData.mijlocTransport.tren;
-            // $ctrl.avionT = $ctrl.initialFormData.mijlocTransport.avion;
-            //
-            // $ctrl.telefon = $ctrl.initialFormData.telefon;
-            // $ctrl.email = $ctrl.initialFormData.email;
-            // $ctrl.scopDeplasare = $ctrl.initialFormData.scopDeplasare;
-            //
-            // $ctrl.cheltSolicitantGen = $ctrl.initialFormData.suportCheltuieli.solicitant;
-            // $ctrl.cheltInstOrgGen = $ctrl.initialFormData.suportCheltuieli.institutie;
-            // $ctrl.cheltAlteleGen = $ctrl.initialFormData.suportCheltuieli.alteSurse;
-            // $ctrl.alteleGen = $ctrl.initialFormData.suportCheltuieli.altele;
-            //
-            // $ctrl.sumaATM = $ctrl.initialFormData.transpAvionTrenMicro.suma;
-            // $ctrl.ATMmoneda = $ctrl.initialFormData.transpAvionTrenMicro.moneda;
-            // $ctrl.finantareATM = $ctrl.initialFormData.transpAvionTrenMicro.finantare;
-            //
-            // $ctrl.sumaAP = $ctrl.initialFormData.transpAutoPers.suma;
-            // $ctrl.finantareAP = $ctrl.initialFormData.transpAutoPers.finantare;
-            //
-            // $ctrl.sumaA = $ctrl.initialFormData.transpAuto.suma;
-            // $ctrl.Amoneda = $ctrl.initialFormData.transpAuto.moneda;
-            // $ctrl.finantareA = $ctrl.initialFormData.transpAuto.finantare;
-            //
-            // $ctrl.sumaE = $ctrl.initialFormData.transpErasmusPlus.suma;
-            // $ctrl.cheltTranspEST = $ctrl.initialFormData.transpErasmusPlus.finantare.ST;
-            // $ctrl.cheltTranspETA = $ctrl.initialFormData.transpErasmusPlus.finantare.AT;
-            // $ctrl.cheltTranspEOM = $ctrl.initialFormData.transpErasmusPlus.finantare.OM;
-            // $ctrl.cheltTranspEC = $ctrl.initialFormData.transpErasmusPlus.finantare.C;
-            // $ctrl.cheltTranspEA = $ctrl.initialFormData.transpErasmusPlus.finantare.alteSurse;
-            // $ctrl.cheltTranspEAltele = $ctrl.initialFormData.transpErasmusPlus.finantare.altele;
-            //
-            // $ctrl.sumaTID = $ctrl.initialFormData.transpInternDest.suma;
-            // $ctrl.TIDmoneda = $ctrl.initialFormData.transpInternDest.moneda;
-            // $ctrl.finantareTID = $ctrl.initialFormData.transpInternDest.finantare;
-            //
-            // $ctrl.DDmoneda = $ctrl.initialFormData.diurna.moneda;
-            // $ctrl.diurnaCpz = $ctrl.initialFormData.diurna.cuantumpZ;
-            // $ctrl.diurnaNz = $ctrl.initialFormData.diurna.nrZ;
-            // $ctrl.diurnaFinantare = $ctrl.initialFormData.diurna.finantare;
-            //
-            // $ctrl.sumaES = $ctrl.initialFormData.subzisErasmusPlus.suma;
-            // $ctrl.cheltSEST = $ctrl.initialFormData.subzisErasmusPlus.finantare.ST;
-            // $ctrl.cheltSETA = $ctrl.initialFormData.subzisErasmusPlus.finantare.AT;
-            // $ctrl.cheltSEOM = $ctrl.initialFormData.subzisErasmusPlus.finantare.OM;
-            // $ctrl.cheltSEC = $ctrl.initialFormData.subzisErasmusPlus.finantare.C;
-            // $ctrl.cheltSEA = $ctrl.initialFormData.subzisErasmusPlus.finantare.alteSurse;
-            // $ctrl.cheltSEAltele = $ctrl.initialFormData.subzisErasmusPlus.finantare.altele;
-            //
-            // $ctrl.DBMmoneda = $ctrl.initialFormData.burseMob.moneda;
-            // $ctrl.bursaCL = $ctrl.initialFormData.burseMob.cuantumpL;
-            // $ctrl.bursaNrL = $ctrl.initialFormData.burseMob.nrL;
-            // $ctrl.bursaFinantare = $ctrl.initialFormData.burseMob.finantare;
-            //
-            // $ctrl.CDmoneda = $ctrl.initialFormData.cazareDest.moneda;
-            // $ctrl.cazareDestZi = $ctrl.initialFormData.cazareDest.cuantumpZ;
-            // $ctrl.cazareDestNrZile = $ctrl.initialFormData.cazareDest.nrZ;
-            // $ctrl.cazareDestFinantare = $ctrl.initialFormData.cazareDest.finantare;
-            //
-            // $ctrl.CCmoneda = $ctrl.initialFormData.cazareCalatorie.moneda;
-            // $ctrl.cazareCalatorieZi = $ctrl.initialFormData.cazareCalatorie.cuantumpZ;
-            // $ctrl.cazareCalatorieNrZile = $ctrl.initialFormData.cazareCalatorie.nrZ;
-            // $ctrl.cazareCalatorieFinantare = $ctrl.initialFormData.cazareCalatorie.finantare;
-            //
-            // $ctrl.TCDmoneda = $ctrl.initialFormData.taxeConferinta.moneda;
-            // $ctrl.sumaTConferinta = $ctrl.initialFormData.taxeConferinta.suma;
-            // $ctrl.finantareTConferinta = $ctrl.initialFormData.taxeConferinta.finantare;
-            //
-            // $ctrl.TVDmoneda = $ctrl.initialFormData.taxeViza.moneda;
-            // $ctrl.sumaTViza = $ctrl.initialFormData.taxeViza.suma;
-            // $ctrl.finantareTViza = $ctrl.initialFormData.taxeViza.finantare;
-            //
-            // $ctrl.TMDmoneda = $ctrl.initialFormData.taxeMembru.moneda;
-            // $ctrl.sumaTMembru = $ctrl.initialFormData.taxeMembru.suma;
-            // $ctrl.finantareTMembru = $ctrl.initialFormData.taxeMembru.finantare;
-            //
-            // $ctrl.TADmoneda = $ctrl.initialFormData.taxeAutostrada.moneda;
-            // $ctrl.sumaTAutostrada = $ctrl.initialFormData.taxeAutostrada.suma;
-            // $ctrl.finantareTAutostrada = $ctrl.initialFormData.taxeAutostrada.finantare;
-            //
-            // $ctrl.TPDmoneda = $ctrl.initialFormData.taxeParcare.moneda;
-            // $ctrl.sumaTParcare = $ctrl.initialFormData.taxeParcare.suma;
-            // $ctrl.finantareTParcare = $ctrl.initialFormData.taxeParcare.finantare;
-            //
-            // $ctrl.TVCDmoneda = $ctrl.initialFormData.taxeVaccin.moneda;
-            // $ctrl.sumaTVaccin = $ctrl.initialFormData.taxeVaccin.suma;
-            // $ctrl.finantareTVaccin = $ctrl.initialFormData.taxeVaccin.finantare;
-            //
-            // $ctrl.TACDmoneda = $ctrl.initialFormData.taxeCarti.moneda;
-            // $ctrl.sumaTAC = $ctrl.initialFormData.taxeCarti.suma;
-            // $ctrl.finantareTAC = $ctrl.initialFormData.taxeCarti.finantare;
-            //
-            // $ctrl.TAMDmoneda = $ctrl.initialFormData.asigMedicala.moneda;
-            // $ctrl.sumaTAM = $ctrl.initialFormData.asigMedicala.suma;
-            // $ctrl.finantareTAM = $ctrl.initialFormData.asigMedicala.finantare;
-            //
-            // $ctrl.sumaRONavans = $ctrl.initialFormData.avans.sumaRON;
-            // $ctrl.sumaEURavans = $ctrl.initialFormData.avans.sumaEUR;
-            // $ctrl.sumaUSDavans = $ctrl.initialFormData.avans.sumaUSD;
-            //
-            // $ctrl.titularCont = $ctrl.initialFormData.dateVirament.titularCont;
-            // $ctrl.CNP = $ctrl.initialFormData.dateVirament.CNP;
-            // $ctrl.domiciliuStabil = $ctrl.initialFormData.dateVirament.domiciliu;
-            // $ctrl.numeBanca = $ctrl.initialFormData.dateVirament.banca;
-            // $ctrl.IBAN = $ctrl.initialFormData.dateVirament.IBAN;
+            $ctrl.$onChanges = function() {
+                $ctrl.initialFormData = AppService.getInitialFormData("DR");
+                $ctrl.functie = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.functie : undefined;
+                $ctrl.facultate = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.facultate : undefined;
+                $ctrl.destinatie = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.destinatie : undefined;
+                $ctrl.ruta = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.ruta : undefined;
+                $ctrl.dataStart = $ctrl.initialFormData != undefined ? new Date($ctrl.initialFormData.dataInceputEveniment) : undefined;
+                $ctrl.dataFinal = $ctrl.initialFormData != undefined ? new Date($ctrl.initialFormData.dataFinalEveniment) : undefined;
+                $ctrl.dataPlecare = $ctrl.initialFormData != undefined ? new Date($ctrl.initialFormData.dataPlecare) : undefined;
+                $ctrl.dataPlecare = $ctrl.initialFormData != undefined ? new Date ($ctrl.initialFormData.dataSosire) : undefined;
+
+                $ctrl.autoT = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.mijlocTransport.auto : undefined;
+                $ctrl.autoTP = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.mijlocTransport.autoPersonal : undefined;
+                $ctrl.autoTUBB = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.mijlocTransport.autoUBB : undefined;
+                $ctrl.trenT = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.mijlocTransport.tren : undefined;
+                $ctrl.avionT = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.mijlocTransport.avion : undefined;
+
+                $ctrl.telefon = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.telefon : undefined;
+                $ctrl.email = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.email : undefined;
+                $ctrl.scopDeplasare = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.scopDeplasare : undefined;
+
+                $ctrl.cheltSolicitantGen = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.suportCheltuieli.solicitant : undefined;
+                $ctrl.cheltInstOrgGen = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.suportCheltuieli.institutie : undefined;
+                $ctrl.cheltAlteleGen = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.suportCheltuieli.alteSurse : undefined;
+                $ctrl.alteleGen = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.suportCheltuieli.altele : undefined;
+
+                $ctrl.sumaATM = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpAvionTrenMicro.suma : undefined;
+                $ctrl.ATMmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpAvionTrenMicro.moneda : undefined;
+                $ctrl.finantareATM = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpAvionTrenMicro.finantare : undefined;
+
+                $ctrl.sumaAP = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpAutoPers.suma : undefined;
+                $ctrl.finantareAP = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpAutoPers.finantare : undefined;
+
+                $ctrl.sumaA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpAuto.suma : undefined;
+                $ctrl.Amoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpAuto.moneda : undefined;
+                $ctrl.finantareA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpAuto.finantare : undefined;
+
+                $ctrl.sumaE = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpErasmusPlus.suma : undefined;
+                $ctrl.cheltTranspEST = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpErasmusPlus.finantare.ST : undefined;
+                $ctrl.cheltTranspETA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpErasmusPlus.finantare.AT : undefined;
+                $ctrl.cheltTranspEOM = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpErasmusPlus.finantare.OM : undefined;
+                $ctrl.cheltTranspEC = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpErasmusPlus.finantare.C : undefined;
+                $ctrl.cheltTranspEA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpErasmusPlus.finantare.alteSurse : undefined;
+                $ctrl.cheltTranspEAltele = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpErasmusPlus.finantare.altele : undefined;
+
+                $ctrl.sumaTID = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpInternDest.suma : undefined;
+                $ctrl.TIDmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpInternDest.moneda : undefined;
+                $ctrl.finantareTID = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.transpInternDest.finantare : undefined;
+
+                $ctrl.DDmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.diurna.moneda : undefined;
+                $ctrl.diurnaCpz = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.diurna.cuantumpZ : undefined;
+                $ctrl.diurnaNz = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.diurna.nrZ : undefined;
+                $ctrl.diurnaFinantare = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.diurna.finantare : undefined;
+
+                $ctrl.sumaES = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.subzisErasmusPlus.suma : undefined;
+                $ctrl.cheltSEST = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.subzisErasmusPlus.finantare.ST : undefined;
+                $ctrl.cheltSETA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.subzisErasmusPlus.finantare.AT : undefined;
+                $ctrl.cheltSEOM = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.subzisErasmusPlus.finantare.OM : undefined;
+                $ctrl.cheltSEC = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.subzisErasmusPlus.finantare.C : undefined;
+                $ctrl.cheltSEA = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.subzisErasmusPlus.finantare.alteSurse : undefined;
+                $ctrl.cheltSEAltele = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.subzisErasmusPlus.finantare.altele : undefined;
+
+                $ctrl.DBMmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.burseMob.moneda : undefined;
+                $ctrl.bursaCL = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.burseMob.cuantumpL : undefined;
+                $ctrl.bursaNrL = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.burseMob.nrL : undefined;
+                $ctrl.bursaFinantare = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.burseMob.finantare : undefined;
+
+                $ctrl.CDmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.cazareDest.moneda : undefined;
+                $ctrl.cazareDestZi = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.cazareDest.cuantumpZ : undefined;
+                $ctrl.cazareDestNrZile = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.cazareDest.nrZ : undefined;
+                $ctrl.cazareDestFinantare = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.cazareDest.finantare : undefined;
+
+                $ctrl.CCmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.cazareCalatorie.moneda : undefined;
+                $ctrl.cazareCalatorieZi = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.cazareCalatorie.cuantumpZ : undefined;
+                $ctrl.cazareCalatorieNrZile = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.cazareCalatorie.nrZ : undefined;
+                $ctrl.cazareCalatorieFinantare = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.cazareCalatorie.finantare : undefined;
+
+                $ctrl.TCDmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeConferinta.moneda : undefined;
+                $ctrl.sumaTConferinta = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeConferinta.suma : undefined;
+                $ctrl.finantareTConferinta = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeConferinta.finantare : undefined;
+
+                $ctrl.TVDmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeViza.moneda : undefined;
+                $ctrl.sumaTViza = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeViza.suma : undefined;
+                $ctrl.finantareTViza = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeViza.finantare : undefined;
+
+                $ctrl.TMDmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeMembru.moneda : undefined;
+                $ctrl.sumaTMembru = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeMembru.suma : undefined;
+                $ctrl.finantareTMembru = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeMembru.finantare : undefined;
+
+                $ctrl.TADmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeAutostrada.moneda : undefined;
+                $ctrl.sumaTAutostrada = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeAutostrada.suma : undefined;
+                $ctrl.finantareTAutostrada = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeAutostrada.finantare : undefined;
+
+                $ctrl.TPDmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeParcare.moneda : undefined;
+                $ctrl.sumaTParcare = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeParcare.suma : undefined;
+                $ctrl.finantareTParcare = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeParcare.finantare : undefined;
+
+                $ctrl.TVCDmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeVaccin.moneda : undefined;
+                $ctrl.sumaTVaccin = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeVaccin.suma : undefined;
+                $ctrl.finantareTVaccin = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeVaccin.finantare : undefined;
+
+                $ctrl.TACDmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeCarti.moneda : undefined;
+                $ctrl.sumaTAC = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeCarti.suma : undefined;
+                $ctrl.finantareTAC = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.taxeCarti.finantare : undefined;
+
+                $ctrl.TAMDmoneda = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.asigMedicala.moneda : undefined;
+                $ctrl.sumaTAM = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.asigMedicala.suma : undefined;
+                $ctrl.finantareTAM = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.asigMedicala.finantare : undefined;
+
+                $ctrl.sumaRONavans = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.avans.sumaRON : undefined;
+                $ctrl.sumaEURavans = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.avans.sumaEUR : undefined;
+                $ctrl.sumaUSDavans = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.avans.sumaUSD : undefined;
+
+                $ctrl.titularCont = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.dateVirament.titularCont : undefined;
+                $ctrl.CNP = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.dateVirament.CNP : undefined;
+                $ctrl.domiciliuStabil = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.dateVirament.domiciliu : undefined;
+                $ctrl.numeBanca = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.dateVirament.banca : undefined;
+                $ctrl.IBAN = $ctrl.initialFormData != undefined ? $ctrl.initialFormData.dateVirament.IBAN : undefined;
+                console.log("On changes");
+            };
 
             $ctrl.handleForm = function () {
                 AppService.setActiveTab(2);
                 AppService.handleDRForm("D");
+                AppService.clearInitialFormData();
             };
 
             $ctrl.getEURSum = function () {
@@ -349,7 +353,6 @@ angular.module('EasyDocsUBBApp')
                         IBAN: $ctrl.IBAN
                     }
                 };
-                console.log(dispozitiaRectorului);
                 AppService.createDRDoc(dispozitiaRectorului);
             }
         }
