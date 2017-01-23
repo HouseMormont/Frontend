@@ -47,6 +47,13 @@ angular.module('EasyDocsUBBApp')
                 return AppService.isEditable(input);
             };
 
-
+            $ctrl.getCustomVersion = function (version) {
+                if (version == 100)
+                    return "APROBAT";
+                else if (version == 0)
+                    return "RESPINS";
+                else
+                    return version;
+            }
         }
     });
